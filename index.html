@@ -287,7 +287,145 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/21/IndexedDB入门/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/27/【转载】一道常被人轻视的JS面试题/" itemprop="url">
+                  【转载】一道常被人轻视的JS面试题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-27T14:31:37+08:00" content="2016-10-27">
+              2016-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/转载/" itemprop="url" rel="index">
+                    <span itemprop="name">转载</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/27/【转载】一道常被人轻视的JS面试题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/【转载】一道常被人轻视的JS面试题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>转载自：<a href="http://www.cnblogs.com/xxcanghai/p/5189353.html">http://www.cnblogs.com/xxcanghai/p/5189353.html</a></p>
+</blockquote>
+<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">1</span>); &#125;;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line">Foo.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">2</span>); &#125;;</div><div class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">3</span>); &#125;;</div><div class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">4</span>); &#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert(<span class="number">5</span>); &#125;</div><div class="line"></div><div class="line"><span class="comment">//请写出以下输出结果：</span></div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line"><span class="keyword">new</span> Foo.getName();</div><div class="line"><span class="keyword">new</span> Foo().getName();</div><div class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName();</div></pre></td></tr></table></figure>
+<h4 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Foo.getName(); <span class="comment">// 2</span></div><div class="line">getName(); <span class="comment">// 4</span></div><div class="line">Foo().getName(); <span class="comment">// 1</span></div><div class="line">getName(); <span class="comment">// 1</span></div><div class="line"><span class="keyword">new</span> Foo.getName(); <span class="comment">// 2</span></div><div class="line"><span class="keyword">new</span> Foo().getName(); <span class="comment">// 3</span></div><div class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName(); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/27/【转载】一道常被人轻视的JS面试题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/21/indexedDB入门/" itemprop="url">
                   IndexedDB入门
                 </a>
               
@@ -331,8 +469,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/21/IndexedDB入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/IndexedDB入门/" itemprop="commentsCount"></span>
+                <a href="/2016/10/21/indexedDB入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/indexedDB入门/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -356,27 +494,16 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>修改时间<br>2016年10月25日11:32:22</p>
 <p>本文主要讲述了indexedDB的初步使用，<br>主要包括数据的增、删、改、查、和索引的创建和查询</p>
 </blockquote>
 <h4 id="1-检查浏览器是否支持indexedDB"><a href="#1-检查浏览器是否支持indexedDB" class="headerlink" title="1. 检查浏览器是否支持indexedDB"></a>1. 检查浏览器是否支持indexedDB</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.indexedDB = <span class="built_in">window</span>.indexedDB</div><div class="line">  || <span class="built_in">window</span>.mozIndexedDB</div><div class="line">  || <span class="built_in">window</span>.webkitIndexedDB</div><div class="line">  || <span class="built_in">window</span>.msIndexedDB;</div><div class="line"><span class="built_in">window</span>.IDBTransaction = <span class="built_in">window</span>.IDBTransaction</div><div class="line">  || <span class="built_in">window</span>.webkitIDBTransaction</div><div class="line">  || <span class="built_in">window</span>.msIDBTransaction;</div><div class="line"><span class="built_in">window</span>.IDBKeyRange = <span class="built_in">window</span>.IDBKeyRange</div><div class="line">  || <span class="built_in">window</span>.webkitIDBKeyRange</div><div class="line">  || <span class="built_in">window</span>.msIDBKeyRange;</div><div class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.indexedDB) <span class="built_in">console</span>.warn(<span class="string">"您的浏览器不支持indexDB"</span>);</div></pre></td></tr></table></figure>
-<h4 id="2-一些数据、函数的声明"><a href="#2-一些数据、函数的声明" class="headerlink" title="2. 一些数据、函数的声明"></a>2. 一些数据、函数的声明</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> success = <span class="function">(<span class="params">msg</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> error = <span class="function">(<span class="params">msg</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.warn(msg);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tip</span>(<span class="params">tip, type</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> tip = type == <span class="string">"+"</span> ? msg.innerHTML + <span class="string">"&lt;br/&gt;"</span> + tip : tip;</div><div class="line">  msg.innerHTML = tip || <span class="string">""</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// indexedDB(数据库)信息</span></div><div class="line"><span class="keyword">var</span> myDB = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'mainbo'</span>,</div><div class="line">  <span class="attr">version</span>: <span class="number">1</span>,</div><div class="line">  <span class="attr">db</span>: <span class="literal">null</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// store(表)信息</span></div><div class="line"><span class="keyword">var</span> store = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'students'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> students = [&#123;</div><div class="line">  <span class="attr">id</span>: <span class="number">1001</span>,</div><div class="line">  <span class="attr">name</span>: <span class="string">"张三"</span>,</div><div class="line">  <span class="attr">age</span>: <span class="number">22</span></div><div class="line">&#125;, &#123;</div><div class="line">  <span class="attr">id</span>: <span class="number">1002</span>,</div><div class="line">  <span class="attr">name</span>: <span class="string">"李四"</span>,</div><div class="line">  <span class="attr">age</span>: <span class="number">22</span></div><div class="line">&#125;, &#123;</div><div class="line">  <span class="attr">id</span>: <span class="number">1003</span>,</div><div class="line">  <span class="attr">name</span>: <span class="string">"王五"</span>,</div><div class="line">  <span class="attr">age</span>: <span class="number">25</span></div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="keyword">var</span> msg, add, query, queryIndexName, queryIndexAge, update, del, clear;</div></pre></td></tr></table></figure>
-<h4 id="3-入口函数"><a href="#3-入口函数" class="headerlink" title="3. 入口函数"></a>3. 入口函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">openDB</span>(<span class="params">db</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> request = <span class="built_in">window</span>.indexedDB.open(db.name, db.version);</div><div class="line">  request.onsuccess = <span class="function"><span class="params">ev</span>=&gt;</span> &#123;</div><div class="line">    success(<span class="string">"打开成功"</span>);</div><div class="line">    myDB.db = ev.target.result;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  request.onerror = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    error(<span class="string">"打开失败"</span> + ev.target.result);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  request.onupgradeneeded = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    myDB.db = ev.target.result;</div><div class="line">    <span class="keyword">if</span> (!myDB.db.objectStoreNames.contains(store.name)) &#123;</div><div class="line">      <span class="keyword">var</span> storeObject = myDB.db.createObjectStore(store.name, &#123;<span class="attr">keyPath</span>: <span class="string">"id"</span>&#125;);</div><div class="line">      storeObject.createIndex(<span class="string">"indexName"</span>, <span class="string">"name"</span>, &#123;<span class="attr">unique</span>: <span class="literal">true</span>&#125;);</div><div class="line">      storeObject.createIndex(<span class="string">"indexAge"</span>, <span class="string">"age"</span>, &#123;<span class="attr">unique</span>: <span class="literal">false</span>&#125;);</div><div class="line">      <span class="comment">//db.createObjectStore(store.name, &#123;autoIncrement: true&#125;); // 可以创建自增的主键</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"DB version changed to : "</span> + myDB.version);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  msg = <span class="built_in">document</span>.getElementById(<span class="string">"msg"</span>),</div><div class="line">    add = <span class="built_in">document</span>.getElementById(<span class="string">"btn_add"</span>),</div><div class="line">    query = <span class="built_in">document</span>.getElementById(<span class="string">"btn_query"</span>),</div><div class="line">    queryIndexName = <span class="built_in">document</span>.getElementById(<span class="string">"btn_query_index_name"</span>),</div><div class="line">    queryIndexAge = <span class="built_in">document</span>.getElementById(<span class="string">"btn_query_index_age"</span>),</div><div class="line">    update = <span class="built_in">document</span>.getElementById(<span class="string">"btn_update"</span>),</div><div class="line">    del = <span class="built_in">document</span>.getElementById(<span class="string">"btn_del"</span>),</div><div class="line">    clear = <span class="built_in">document</span>.getElementById(<span class="string">"btn_clear"</span>);</div><div class="line"></div><div class="line">  add.addEventListener(<span class="string">"click"</span>, addData);</div><div class="line">  query.addEventListener(<span class="string">"click"</span>, getData);</div><div class="line">  queryIndexName.addEventListener(<span class="string">"click"</span>, getDataByIndexName);</div><div class="line">  queryIndexAge.addEventListener(<span class="string">"click"</span>, getDataByIndexAge)</div><div class="line">  update.addEventListener(<span class="string">"click"</span>, updateData);</div><div class="line">  del.addEventListener(<span class="string">"click"</span>, deleteData);</div><div class="line">  clear.addEventListener(<span class="string">"click"</span>, clearStore);</div><div class="line">  </div><div class="line">  openDB(myDB);</div><div class="line">&#125;</div><div class="line">init();</div></pre></td></tr></table></figure>
-<h4 id="4-增加数据"><a href="#4-增加数据" class="headerlink" title="4. 增加数据"></a>4. 增加数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addData</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  tip();</div><div class="line">  <span class="keyword">var</span> transaction = myDB.db.transaction([store.name], <span class="string">"readwrite"</span>);</div><div class="line">  transaction.oncomplete = <span class="function"><span class="params">ev</span>=&gt;</span> &#123;</div><div class="line">    success(<span class="string">"事务完成"</span>);</div><div class="line">  &#125;</div><div class="line">  transaction.onerror = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    error(<span class="string">"事务失败"</span>);</div><div class="line">  &#125;</div><div class="line">  transaction.onbort = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    error(<span class="string">"事务被终止"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> objStore = transaction.objectStore(store.name);</div><div class="line">  students.forEach(<span class="function"><span class="params">item</span>=&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> req = objStore.get(item.id);</div><div class="line">    req.onsuccess = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">var</span> temp = ev.target.result;</div><div class="line">      <span class="keyword">if</span> (temp) tip(<span class="built_in">JSON</span>.stringify(temp) + <span class="string">" 已存在，请勿重复添加"</span>, <span class="string">"+"</span>)</div><div class="line">      <span class="keyword">else</span> &#123;</div><div class="line">        objStore.add(item);</div><div class="line">        tip(<span class="built_in">JSON</span>.stringify(item) + <span class="string">" 添加成功，请通过调试器查看效果"</span>, <span class="string">"+"</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="5-查询数据"><a href="#5-查询数据" class="headerlink" title="5. 查询数据"></a>5. 查询数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用主键查询</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> transaction = myDB.db.transaction([store.name], <span class="string">"readonly"</span>);</div><div class="line">  <span class="keyword">var</span> objStore = transaction.objectStore(store.name);</div><div class="line">  <span class="keyword">var</span> req = objStore.get(students[<span class="number">1</span>].id);</div><div class="line">  req.onsuccess = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> item = ev.target.result;</div><div class="line">    <span class="keyword">if</span> (item)</div><div class="line">      tip(<span class="string">"数据查询成功：key="</span> + students[<span class="number">1</span>].id + <span class="string">", value="</span> + <span class="built_in">JSON</span>.stringify(item));</div><div class="line">    <span class="keyword">else</span></div><div class="line">      tip(<span class="string">"key="</span> + students[<span class="number">1</span>].id + <span class="string">" 数据查询失败"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用唯一索引值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDataByIndexName</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> transaction = myDB.db.transaction([store.name], <span class="string">"readonly"</span>);</div><div class="line">  <span class="keyword">var</span> objStore = transaction.objectStore(store.name);</div><div class="line">  <span class="keyword">var</span> index = objStore.index(<span class="string">"indexName"</span>);</div><div class="line">  index.get(<span class="string">"张三"</span>).onsuccess = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> item = ev.target.result;</div><div class="line">    <span class="keyword">if</span> (item)</div><div class="line">      tip(<span class="string">"数据查询成功："</span> + <span class="built_in">JSON</span>.stringify(item));</div><div class="line">    <span class="keyword">else</span></div><div class="line">      tip(<span class="string">"数据查询失败"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用不唯一索引值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDataByIndexAge</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  tip();</div><div class="line">  <span class="keyword">var</span> transaction = myDB.db.transaction([store.name], <span class="string">"readonly"</span>);</div><div class="line">  <span class="keyword">var</span> objStore = transaction.objectStore(store.name);</div><div class="line">  <span class="keyword">var</span> index = objStore.index(<span class="string">"indexAge"</span>);</div><div class="line">  index.openCursor(IDBKeyRange.only(<span class="number">22</span>)).onsuccess = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> cursor = ev.target.result;</div><div class="line">    <span class="keyword">if</span> (cursor) &#123;</div><div class="line">      <span class="keyword">var</span> item = cursor.value;</div><div class="line">      <span class="keyword">if</span> (item)</div><div class="line">        tip(<span class="string">"数据查询成功："</span> + <span class="built_in">JSON</span>.stringify(item), <span class="string">"+"</span>);</div><div class="line">      <span class="keyword">else</span></div><div class="line">        tip(<span class="string">"数据查询失败"</span>);</div><div class="line">      cursor.continue();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="6-更新数据"><a href="#6-更新数据" class="headerlink" title="6. 更新数据"></a>6. 更新数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateData</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> transaction = myDB.db.transaction([store.name], <span class="string">"readwrite"</span>);</div><div class="line">  <span class="keyword">var</span> objStore = transaction.objectStore(store.name);</div><div class="line">  <span class="keyword">var</span> req = objStore.get(students[<span class="number">1</span>].id);</div><div class="line">  req.onsuccess = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> item = ev.target.result;</div><div class="line">    <span class="keyword">if</span> (item) &#123;</div><div class="line">      item.age++;</div><div class="line">      objStore.put(item);</div><div class="line">      tip(<span class="string">"数据更新成功：key="</span> + students[<span class="number">1</span>].id + <span class="string">", value="</span> + <span class="built_in">JSON</span>.stringify(item) + <span class="string">" 注意age的变化"</span>);</div><div class="line">    &#125; <span class="keyword">else</span></div><div class="line">      tip(<span class="string">"key="</span> + students[<span class="number">1</span>].id + <span class="string">" 数据更新失败"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="7-删除数据"><a href="#7-删除数据" class="headerlink" title="7. 删除数据"></a>7. 删除数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deleteData</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> transaction = myDB.db.transaction([store.name], <span class="string">"readwrite"</span>);</div><div class="line">  <span class="keyword">var</span> objStore = transaction.objectStore(store.name);</div><div class="line">  <span class="keyword">var</span> req = objStore.delete(students[<span class="number">1</span>].id);</div><div class="line">  req.onsuccess = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    tip(<span class="string">"数据删除成功：key="</span> + students[<span class="number">1</span>].id + <span class="string">" 请通过调试器查看效果"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="8-清除数据"><a href="#8-清除数据" class="headerlink" title="8. 清除数据"></a>8. 清除数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearStore</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> transaction = myDB.db.transaction([store.name], <span class="string">"readwrite"</span>);</div><div class="line">  <span class="keyword">var</span> objStore = transaction.objectStore(store.name);</div><div class="line">  <span class="keyword">var</span> req = objStore.clear();</div><div class="line">  req.onsuccess = <span class="function"><span class="params">ev</span> =&gt;</span> &#123;</div><div class="line">    tip(store.name + <span class="string">" 数据清除成功，请通过调试器查看效果"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><blockquote>
-<p><a href="https://github.com/liqianglai/JavaScript-study.git" target="_blank" rel="external">参考代码</a></p>
-</blockquote>
-<h4 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h4><blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API" target="_blank" rel="external">MDN indexedDB API</a></p>
-</blockquote>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/21/indexedDB入门/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1052,7 +1179,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1060,7 +1187,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1069,7 +1196,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
