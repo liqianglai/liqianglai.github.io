@@ -287,6 +287,147 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/01/【转载】幻数/" itemprop="url">
+                  【转载】幻数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T09:18:10+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/朝花夕拾/" itemprop="url" rel="index">
+                    <span itemprop="name">朝花夕拾</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/朝花夕拾/转载/" itemprop="url" rel="index">
+                    <span itemprop="name">转载</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/01/【转载】幻数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/【转载】幻数/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>转载自：<a href="http://blog.csdn.net/xieyihua1994/article/details/51578325" target="_blank" rel="external">http://blog.csdn.net/xieyihua1994/article/details/51578325</a></p>
+<blockquote>
+<p>幻数：就是具体的数，反映不出数字所代表的意义。<br>危害：幻数带来的主要问题是它们没有（抽象）语义。当我们阅读和维护带有幻数的代码时，不得不去一个个地搞清楚每个光秃秃的量到底代表的是什么意思。<br>没错，这样也能勉强度日，但带来的是不必要的精力浪费以及准确性的丧失。</p>
+</blockquote>
+<p>仅仅只是文字的表达，我相信恐怕有些朋友难以理解，那我就举个例子说明一下。<br>比如：有下列一段代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt;<span class="number">16</span> ; i ++) &#123; &#125;</div></pre></td></tr></table></figure>
+<p>那么我就要问同学们有谁知道 i 为什么必须小于16吗？16代表的是什么？（<em>大家肯定在想：我的天！！我怎么可能知道，这代码又不是我写的，我怎么会知道他在想什么。</em>）</p>
+<p>对！！！<br>就是因为代码不是我们自己写的，所以我们不知道这个16是什么意思，这也暴露了一个问题，这段代码的可读性比较差，因为读者根本不知道16是什么意思，我相信即使是代码的编写者，你问他，他也需要联系上下文才能回答你这个问题。<br>所以，这就是“幻术”。</p>
+<p>如何避免这种情况呢？有很多种方式，比如枚举，宏替换都是解决幻数的有效方式。<br>上面的例子可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> len = <span class="number">16</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt;len ; i ++) &#123; &#125;</div></pre></td></tr></table></figure></p>
+<p>这样写就可以很好地理解这段代码的意思了。说到这里，我想大家应该都知道解决幻数的好处是什么了。因此我们写代码的时候，尽量避免幻数的出现。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/27/【转载】一道常被人轻视的JS面试题/" itemprop="url">
                   【转载】一道常被人轻视的JS面试题
                 </a>
@@ -1179,7 +1320,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1187,7 +1328,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1196,7 +1337,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
