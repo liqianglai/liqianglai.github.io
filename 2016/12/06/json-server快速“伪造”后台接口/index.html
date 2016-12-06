@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Node.js,Express,MongoDB," />
+  <meta name="keywords" content="JavaScript,Node.js,rest," />
 
 
 
@@ -82,19 +82,43 @@
 
 
 
-<meta name="description" content="node+express+mongodb 实现博客的登录机制
-代码地址：https://git.oschina.net/lailiqiang/blog.git">
+<meta name="description" content="环境需要安装 node https://nodejs.org/en/
+开始
+新建项目 mkdir rest-api-demo &amp;amp;&amp;amp; cd rest-api-demo
+
+初始化项目 npm init
+
+安装 npm install --save-dev json-server
+
+在项目根目录下，新建一个 JSON 文件db.json
+123456789&amp;#123;  &amp;quot;po">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node+express+mongodb可运行">
-<meta property="og:url" content="http://liqianglai.github.com/2016/10/13/node-express-mongodb可运行/index.html">
+<meta property="og:title" content="json-server快速“伪造”后台接口">
+<meta property="og:url" content="http://liqianglai.github.com/2016/12/06/json-server快速“伪造”后台接口/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="node+express+mongodb 实现博客的登录机制
-代码地址：https://git.oschina.net/lailiqiang/blog.git">
-<meta property="og:updated_time" content="2016-10-13T10:22:53.792Z">
+<meta property="og:description" content="环境需要安装 node https://nodejs.org/en/
+开始
+新建项目 mkdir rest-api-demo &amp;amp;&amp;amp; cd rest-api-demo
+
+初始化项目 npm init
+
+安装 npm install --save-dev json-server
+
+在项目根目录下，新建一个 JSON 文件db.json
+123456789&amp;#123;  &amp;quot;po">
+<meta property="og:updated_time" content="2016-12-06T06:43:54.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node+express+mongodb可运行">
-<meta name="twitter:description" content="node+express+mongodb 实现博客的登录机制
-代码地址：https://git.oschina.net/lailiqiang/blog.git">
+<meta name="twitter:title" content="json-server快速“伪造”后台接口">
+<meta name="twitter:description" content="环境需要安装 node https://nodejs.org/en/
+开始
+新建项目 mkdir rest-api-demo &amp;amp;&amp;amp; cd rest-api-demo
+
+初始化项目 npm init
+
+安装 npm install --save-dev json-server
+
+在项目根目录下，新建一个 JSON 文件db.json
+123456789&amp;#123;  &amp;quot;po">
 
 
 
@@ -115,10 +139,10 @@
 
 
 
-  <link rel="canonical" href="http://liqianglai.github.com/2016/10/13/node-express-mongodb可运行/"/>
+  <link rel="canonical" href="http://liqianglai.github.com/2016/12/06/json-server快速“伪造”后台接口/"/>
 
 
-  <title> node+express+mongodb可运行 | 朝花夕拾 </title>
+  <title> json-server快速“伪造”后台接口 | 朝花夕拾 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -288,7 +312,7 @@
             
             
               
-                node+express+mongodb可运行
+                json-server快速“伪造”后台接口
               
             
           </h1>
@@ -300,8 +324,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-13T13:44:44+08:00" content="2016-10-13">
-              2016-10-13
+            <time itemprop="dateCreated" datetime="2016-12-06T14:06:01+08:00" content="2016-12-06">
+              2016-12-06
             </time>
           </span>
 
@@ -330,8 +354,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/13/node-express-mongodb可运行/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/node-express-mongodb可运行/" itemprop="commentsCount"></span>
+                <a href="/2016/12/06/json-server快速“伪造”后台接口/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/json-server快速“伪造”后台接口/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -354,10 +378,37 @@
       
 
       
-        <h4 id="node-express-mongodb-实现博客的登录机制"><a href="#node-express-mongodb-实现博客的登录机制" class="headerlink" title="node+express+mongodb 实现博客的登录机制"></a>node+express+mongodb 实现博客的登录机制</h4><blockquote>
-<p>代码地址：<a href="https://git.oschina.net/lailiqiang/blog.git" target="_blank" rel="external">https://git.oschina.net/lailiqiang/blog.git</a></p>
-</blockquote>
-
+        <h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>需要安装 <code>node</code> <a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></p>
+<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><ol>
+<li><p>新建项目 <code>mkdir rest-api-demo &amp;&amp; cd rest-api-demo</code></p>
+</li>
+<li><p>初始化项目 <code>npm init</code></p>
+</li>
+<li><p>安装 <code>npm install --save-dev json-server</code></p>
+</li>
+<li><p>在项目根目录下，新建一个 JSON 文件<code>db.json</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;posts&quot;: [</div><div class="line">    &#123; &quot;id&quot;: 1, &quot;title&quot;: &quot;json-server&quot;, &quot;author&quot;: &quot;typicode&quot; &#125;</div><div class="line">  ],</div><div class="line">  &quot;comments&quot;: [</div><div class="line">    &#123; &quot;id&quot;: 1, &quot;body&quot;: &quot;some comment&quot;, &quot;postId&quot;: 1 &#125;</div><div class="line">  ],</div><div class="line">  &quot;profile&quot;: &#123; &quot;name&quot;: &quot;typicode&quot; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开 <code>package.json</code>，在 <code>scripts</code> 字段添加一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;json-server db.json&quot;, // 新加行</div><div class="line">  &quot;test&quot;: &quot;...&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务 <code>npm run server</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">\&#123;^_^&#125;/ hi!</div><div class="line"></div><div class="line">Loading db.json</div><div class="line">Done</div><div class="line"></div><div class="line">Resources</div><div class="line">http://localhost:3000/posts</div><div class="line">http://localhost:3000/comments</div><div class="line">http://localhost:3000/profile</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>三个接口已经生成，支持<code>post(新增) delete(删除) put(修改) get(查询)</code>;<br><em>推荐使用 <code>postman</code> 进行测试</em></p>
+<h4 id="自定义路由-custom-routes"><a href="#自定义路由-custom-routes" class="headerlink" title="自定义路由 custom routes"></a>自定义路由 <code>custom routes</code></h4><ol>
+<li><p>创建一个JSON文件 <code>routes.json</code><br><em>必须以<code>/</code>开始</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;/api/&quot;: &quot;/&quot;,</div><div class="line">  &quot;/blog/:resource/:id/show&quot;: &quot;/:resource/:id&quot;,</div><div class="line">  &quot;/blog/:category&quot;: &quot;/posts/:id?category=:category&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改启动参数 <code>package.json</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;json-server db.json --routes routes.json&quot;, // 修改行</div><div class="line">  &quot;test&quot;: &quot;...&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务 <code>npm run server</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">\&#123;^_^&#125;/ hi!</div><div class="line"></div><div class="line">Loading db.json</div><div class="line">Loading routes.json</div><div class="line">Done</div><div class="line"></div><div class="line">Resources</div><div class="line">http://localhost:3000/posts</div><div class="line">http://localhost:3000/comments</div><div class="line">http://localhost:3000/profile</div><div class="line"></div><div class="line">Other routes</div><div class="line">/api/ -&gt; /</div><div class="line">/blog/:resource/:id/show -&gt; /:resource/:id</div><div class="line">/blog/:category -&gt; /posts/:id?category=:category</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="详情查看：https-www-npmjs-com-package-json-server"><a href="#详情查看：https-www-npmjs-com-package-json-server" class="headerlink" title="详情查看：https://www.npmjs.com/package/json-server"></a>详情查看：<a href="https://www.npmjs.com/package/json-server" target="_blank" rel="external">https://www.npmjs.com/package/json-server</a></h4>
       
     </div>
 
@@ -395,11 +446,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
             <a href="/tags/Node-js/" rel="tag">#Node.js</a>
           
-            <a href="/tags/Express/" rel="tag">#Express</a>
-          
-            <a href="/tags/MongoDB/" rel="tag">#MongoDB</a>
+            <a href="/tags/rest/" rel="tag">#rest</a>
           
         </div>
       
@@ -408,13 +459,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/14/JavaScript函数调用返回问题/" rel="next" title="JavaScript函数调用返回问题">
+                <i class="fa fa-chevron-left"></i> JavaScript函数调用返回问题
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/13/JavaScript栈的实现和回文判断/" rel="prev" title="JavaScript栈的实现和回文判断">
-                JavaScript栈的实现和回文判断 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,8 +491,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/13/node-express-mongodb可运行/"
-           data-title="node+express+mongodb可运行" data-url="http://liqianglai.github.com/2016/10/13/node-express-mongodb可运行/">
+      <div class="ds-thread" data-thread-key="2016/12/06/json-server快速“伪造”后台接口/"
+           data-title="json-server快速“伪造”后台接口" data-url="http://liqianglai.github.com/2016/12/06/json-server快速“伪造”后台接口/">
       </div>
     
   </div>
@@ -550,7 +601,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#node-express-mongodb-实现博客的登录机制"><span class="nav-text">node+express+mongodb 实现博客的登录机制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#环境"><span class="nav-text">环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始"><span class="nav-text">开始</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义路由-custom-routes"><span class="nav-text">自定义路由 custom routes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#详情查看：https-www-npmjs-com-package-json-server"><span class="nav-text">详情查看：https://www.npmjs.com/package/json-server</span></a></li></ol></div>
             
           </div>
         </section>
