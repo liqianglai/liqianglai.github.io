@@ -287,6 +287,160 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/22/学习笔记（不定期更新）/" itemprop="url">
+                  学习笔记（不定期更新）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-22T16:46:20+08:00" content="2017-08-22">
+              2017-08-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/22/学习笔记（不定期更新）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/22/学习笔记（不定期更新）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/08/22/学习笔记（不定期更新）/" class="leancloud_visitors" data-flag-title="学习笔记（不定期更新）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>更新于：2017年8月22日17:00:16</p>
+</blockquote>
+<h4 id="零零碎碎"><a href="#零零碎碎" class="headerlink" title="零零碎碎"></a>零零碎碎</h4><h5 id="首字母大写"><a href="#首字母大写" class="headerlink" title="首字母大写"></a>首字母大写</h5><p>组件首字母要大写，React 会将小写开头的标签名认为是 HTML 原生标签</p>
+<h5 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h5><p>如果你已经有了个 props 对象，并且想在 JSX 中传递它，你可以使用 <code>...</code> 作为扩展操作符来传递整个属性对象。下面两个组件是等效的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">App1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;Greeting firstName="Ben" lastName="Hector" /&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function App2() &#123;</div><div class="line">  const props = &#123;firstName: 'Ben', lastName: 'Hector'&#125;;</div><div class="line">  return &lt;Greeting &#123;...props&#125; /&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当你构建通用容器时，扩展属性会非常有用。然而，这样做也可能让很多不相关的属性，传递到不需要它们的组件中使代码变得混乱。React建议你谨慎使用此语法。</p>
+<h4 id="Create-React-App"><a href="#Create-React-App" class="headerlink" title="Create React App"></a>Create React App</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1. 自定义配置，需要执行，此操作为单向不可逆</span></div><div class="line">yarn eject</div><div class="line"></div><div class="line"><span class="comment"># 2. 路由</span></div><div class="line">React-Router</div><div class="line"></div><div class="line"><span class="comment"># 3. 图表的支持</span></div><div class="line">echarts-for-react</div><div class="line"></div><div class="line"><span class="comment"># 4. sass支持</span></div><div class="line">sass-loader</div><div class="line">node-sass</div><div class="line"></div><div class="line"><span class="comment"># 5. 路由依赖加载</span></div><div class="line">lazy-load-react</div></pre></td></tr></table></figure>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><h5 id="1-初始化过程"><a href="#1-初始化过程" class="headerlink" title="1. 初始化过程"></a>1. 初始化过程</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. constructor</div><div class="line">2. componentWillMount</div><div class="line">3. render</div><div class="line">4. componentDidMount</div></pre></td></tr></table></figure>
+<h5 id="2-更新过程"><a href="#2-更新过程" class="headerlink" title="2. 更新过程"></a>2. 更新过程</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate <span class="comment"># true 执行以下过程， false 中断更新</span></div><div class="line">1. componentWillUpdate</div><div class="line">2. render</div><div class="line">3. componentDidUpdate</div></pre></td></tr></table></figure>
+<h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h4><ul>
+<li>使用 camelCase 模式 <code>onClick</code></li>
+<li>阻止默认事件 <code>ev.preventDefault</code></li>
+<li>事件的 <code>this</code> 问题<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 使用 bind 绑定，优先使用该方式</span></div><div class="line"><span class="keyword">this</span>.method = <span class="keyword">this</span>.method.bind(<span class="keyword">this</span>)</div><div class="line"><span class="comment">// 2. 试验特性</span></div><div class="line">method = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</div><div class="line"><span class="comment">// 3. 性能问题</span></div><div class="line">onClick=&#123;() =&gt; <span class="keyword">this</span>.method()&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/22/缓存——从请求到响应过程的一切（下）/" itemprop="url">
                   缓存——从请求到响应过程的一切（下）
                 </a>
@@ -1550,135 +1704,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/13/JavaScript-Switch/" itemprop="url">
-                  JavaScript Switch
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-13T18:19:08+08:00" content="2016-10-13">
-              2016-10-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/13/JavaScript-Switch/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/JavaScript-Switch/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/13/JavaScript-Switch/" class="leancloud_visitors" data-flag-title="JavaScript Switch">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="1-直接上代码"><a href="#1-直接上代码" class="headerlink" title="1. 直接上代码"></a>1. 直接上代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIconByFormat</span>(<span class="params">format</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> icon = <span class="string">''</span>;</div><div class="line">  <span class="keyword">switch</span> (format) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'ppt'</span>:</div><div class="line">      icon = <span class="string">'ppt'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'doc'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'docx'</span>:</div><div class="line">      icon = <span class="string">'word'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'mid'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'wma'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'wav'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'flac'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'m4a'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'voc'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mp3'</span>:</div><div class="line">      icon = <span class="string">'music'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'flv'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'avi'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mkv'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'wmv'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mp4'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'f4v'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mpg'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'asf'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'webm'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mov'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'rmvb'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'rm'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mp4'</span>:</div><div class="line">      icon = <span class="string">'video'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'jpg'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'jpeg'</span>:</div><div class="line">      icon = <span class="string">'image'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> icon;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getIconByFormat(<span class="string">"doc"</span>) =&gt; word</div><div class="line">getIconByFormat(<span class="string">"wmv"</span>) =&gt; video</div><div class="line">getIconByFormat(<span class="string">"jpeg"</span>) =&gt; image</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1724,7 +1749,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1732,7 +1757,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1741,7 +1766,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

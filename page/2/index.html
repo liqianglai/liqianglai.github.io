@@ -287,6 +287,135 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/13/JavaScript-Switch/" itemprop="url">
+                  JavaScript Switch
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T18:19:08+08:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/13/JavaScript-Switch/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/JavaScript-Switch/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/13/JavaScript-Switch/" class="leancloud_visitors" data-flag-title="JavaScript Switch">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-直接上代码"><a href="#1-直接上代码" class="headerlink" title="1. 直接上代码"></a>1. 直接上代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIconByFormat</span>(<span class="params">format</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> icon = <span class="string">''</span>;</div><div class="line">  <span class="keyword">switch</span> (format) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'ppt'</span>:</div><div class="line">      icon = <span class="string">'ppt'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'doc'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'docx'</span>:</div><div class="line">      icon = <span class="string">'word'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'mid'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'wma'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'wav'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'flac'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'m4a'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'voc'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mp3'</span>:</div><div class="line">      icon = <span class="string">'music'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'flv'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'avi'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mkv'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'wmv'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mp4'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'f4v'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mpg'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'asf'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'webm'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mov'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'rmvb'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'rm'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'mp4'</span>:</div><div class="line">      icon = <span class="string">'video'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'jpg'</span>:</div><div class="line">    <span class="keyword">case</span> <span class="string">'jpeg'</span>:</div><div class="line">      icon = <span class="string">'image'</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> icon;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getIconByFormat(<span class="string">"doc"</span>) =&gt; word</div><div class="line">getIconByFormat(<span class="string">"wmv"</span>) =&gt; video</div><div class="line">getIconByFormat(<span class="string">"jpeg"</span>) =&gt; image</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/13/SVG模拟时钟/" itemprop="url">
                   SVG模拟时钟
                 </a>
@@ -703,7 +832,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -711,7 +840,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -720,7 +849,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
