@@ -92,7 +92,7 @@ Cookies你已经知道了缓存头是如何起作用的，现在我们来看下�
 <meta property="og:description" content="转载：https://zhuanlan.zhihu.com/p/25596667原文：https://blog.fortrabbit.com/mastering-http-caching
 
 Cookies你已经知道了缓存头是如何起作用的，现在我们来看下在缓存里面 cookie 起了什么作用。首先， Cookie 的设定也在 HTTP 响应头中，名字是 Set-Cookie。设置一个 cookie">
-<meta property="og:updated_time" content="2017-08-22T08:41:08.602Z">
+<meta property="og:updated_time" content="2017-08-22T08:42:59.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="缓存——从请求到响应过程的一切（下）">
 <meta name="twitter:description" content="转载：https://zhuanlan.zhihu.com/p/25596667原文：https://blog.fortrabbit.com/mastering-http-caching
@@ -385,7 +385,8 @@ Cookies你已经知道了缓存头是如何起作用的，现在我们来看下�
 <p>想象一下缓存的场景，你是否会缓存一个包含了Set-Cookie的 HTTP 响应，在缓存时间内，每个人都会得到相同的 cookie 和同样的用户 session？你肯定不想这样。</p>
 <p>另外，用户 session 状态的改变可能会影响到响应内容的变化。一个简单的场景：电商购物车。你给用户要么提供一个空购物车，要么是用户自己选了很多物品的购物车。同样的道理，你不希望这个也被缓存，毕竟每个用户都应该有自己的购物车。</p>
 <p>一个解决方法是在运行时通过 JavaScript 设置 Cookie，比如 Google Analytics。GA 通过 JS 设置 cookie，但这个 cookie 既不影响渲染，也不设置 Set-Cookie 头。GA 会在目标网站上添加类似于 “you are tracked via Google Analytics” 的图标，但是只要这些改变都是在运行时添加进去的，就都没有问题。</p>
-<h4 id="正确处理-cookie-和缓存"><a href="#正确处理-cookie-和缓存" class="headerlink" title="正确处理 cookie 和缓存"></a>正确处理 cookie 和缓存</h4><p>首先你需要知道你网站的 cookie 的工作原理。cookie 是不是只在特定时间使用（如在用户登录过程中使用）？原则上，cookie 是不是会被注入到所有响应？</p>
+<h4 id="正确处理-cookie-和缓存"><a href="#正确处理-cookie-和缓存" class="headerlink" title="正确处理 cookie 和缓存"></a>正确处理 cookie 和缓存</h4><a id="more"></a>
+<p>首先你需要知道你网站的 cookie 的工作原理。cookie 是不是只在特定时间使用（如在用户登录过程中使用）？原则上，cookie 是不是会被注入到所有响应？</p>
 <p>正如上一节所说的，不论何时服务器返回了一个带有Set-Cookie 的响应，你都希望能够保证它不会被缓存。那么问题就转化成为，当你返回一个带有“用户特性”内容的响应时（如购物车），CDN /代理服务器，会作何操作？</p>
 <p>如果没设置 Set-Cookie，是不是允许缓存呢？</p>
 <p>如果设置了 Set-Cookie，是不是自动丢弃所有Cache-Control 头呢？</p>
