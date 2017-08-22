@@ -287,6 +287,136 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/13/SVG模拟时钟/" itemprop="url">
+                  SVG模拟时钟
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T13:47:03+08:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/13/SVG模拟时钟/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/SVG模拟时钟/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/13/SVG模拟时钟/" class="leancloud_visitors" data-flag-title="SVG模拟时钟">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-直接上代码"><a href="#1-直接上代码" class="headerlink" title="1. 直接上代码"></a>1. 直接上代码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">    * &#123;</div><div class="line">      margin: 0;</div><div class="line">    &#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"400"</span> <span class="attr">height</span>=<span class="string">"400"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>SVG Analog Clock<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">id</span>=<span class="string">"face"</span> <span class="attr">cx</span>=<span class="string">"125"</span> <span class="attr">cy</span>=<span class="string">"125"</span> <span class="attr">r</span>=<span class="string">"100"</span></span></div><div class="line">          <span class="attr">style</span>=<span class="string">"fill: #f1f1f1; stroke: #000;"</span>&gt;<span class="tag">&lt;/<span class="name">circle</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"ticks"</span> <span class="attr">transform</span>=<span class="string">"translate(125, 125)"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"triangle"</span> <span class="attr">d</span>=<span class="string">"M95 0 L 100 -5 L 100 5 Z"</span></span></div><div class="line">          <span class="attr">transform</span>=<span class="string">"rotate(360)"</span>&gt;<span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">g</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"hands"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"hour"</span> <span class="attr">d</span>=<span class="string">"M 125 125 V 75"</span></span></div><div class="line">          <span class="attr">style</span>=<span class="string">"fill: none; stroke: black; stroke-width: 6"</span></div><div class="line">          <span class="attr">transform</span>=<span class="string">"rotate(0)"</span>&gt;<span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"minute"</span> <span class="attr">d</span>=<span class="string">"M 125 125 V 50"</span></span></div><div class="line">          <span class="attr">style</span>=<span class="string">"fill: none; stroke: black; stroke-width: 4"</span></div><div class="line">          <span class="attr">transform</span>=<span class="string">"rotate(0)"</span>&gt;<span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"second"</span> <span class="attr">d</span>=<span class="string">"M 125 125 Q 100 100 125 80 T 125 40 V 30"</span></span></div><div class="line">          <span class="attr">style</span>=<span class="string">"fill: none; stroke: #f00; stroke-width: 2"</span></div><div class="line">          <span class="attr">transform</span>=<span class="string">"rotate(0)"</span>&gt;<span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">g</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"knob"</span> <span class="attr">transform</span>=<span class="string">"translate(125, 125)"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"0"</span> <span class="attr">cy</span>=<span class="string">"0"</span> <span class="attr">r</span>=<span class="string">"6"</span> <span class="attr">style</span>=<span class="string">"fill: #333;"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">g</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> svgns = <span class="string">"http://www.w3.org/2000/svg"</span>;</div><div class="line">  <span class="keyword">var</span> face = <span class="built_in">document</span>.getElementById(<span class="string">"face"</span>),</div><div class="line">      ticks = <span class="built_in">document</span>.getElementById(<span class="string">"ticks"</span>),</div><div class="line">      triangle = <span class="built_in">document</span>.getElementById(<span class="string">"triangle"</span>),</div><div class="line">      txt = <span class="built_in">document</span>.getElementById(<span class="string">"txt"</span>);</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">11</span>; i++) &#123;</div><div class="line">    <span class="keyword">var</span> temp_triangle = triangle.cloneNode(<span class="literal">true</span>);</div><div class="line">    <span class="keyword">var</span> angle = i * <span class="number">30</span> + <span class="number">30</span>;</div><div class="line">    temp_triangle.setAttribute(<span class="string">"transform"</span>, <span class="string">"rotate("</span> + angle + <span class="string">")"</span>);</div><div class="line">    ticks.appendChild(temp_triangle);</div><div class="line">    ticks.setAttribute(<span class="string">"transform"</span>, <span class="string">"translate(125, 125), rotate(-90)"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> hourHand = <span class="built_in">document</span>.getElementById(<span class="string">"hour"</span>),</div><div class="line">      minuteHand = <span class="built_in">document</span>.getElementById(<span class="string">"minute"</span>),</div><div class="line">      secondHand = <span class="built_in">document</span>.getElementById(<span class="string">"second"</span>);</div><div class="line">  <span class="keyword">var</span> hourTransform, minuteTransform, secondTransform;</div><div class="line">  <span class="keyword">var</span> secPer12Hours = <span class="number">60</span> * <span class="number">60</span> * <span class="number">12</span>,</div><div class="line">      secPerHour = <span class="number">60</span> * <span class="number">60</span>,</div><div class="line">      secPerMinute = <span class="number">60</span>;</div><div class="line"></div><div class="line">  (<span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    hourTransform = hourHand.transform.baseVal.getItem(<span class="number">0</span>);</div><div class="line">    minuteTransform = minuteHand.transform.baseVal.getItem(<span class="number">0</span>);</div><div class="line">    secondTransform = secondHand.transform.baseVal.getItem(<span class="number">0</span>);</div><div class="line">    updateClock();</div><div class="line">  &#125;)()</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">updateClock</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="keyword">var</span> sec = date.getMilliseconds() / <span class="number">1000</span> +</div><div class="line">        date.getSeconds() +</div><div class="line">        date.getMinutes() * <span class="number">60</span> +</div><div class="line">        date.getHours() * <span class="number">60</span> * <span class="number">60</span>;</div><div class="line">    <span class="keyword">var</span> hourAngle = (sec % secPer12Hours) * <span class="number">360</span> / secPer12Hours,</div><div class="line">        minuteAngle = (sec % secPerHour) * <span class="number">360</span> / secPerHour,</div><div class="line">        secondAngle = (sec % secPerMinute) * <span class="number">360</span> / secPerMinute;</div><div class="line">    hourTransform.setRotate(hourAngle, <span class="number">125</span>, <span class="number">125</span>);</div><div class="line">    minuteTransform.setRotate(minuteAngle, <span class="number">125</span>, <span class="number">125</span>);</div><div class="line">    secondTransform.setRotate(secondAngle, <span class="number">125</span>, <span class="number">125</span>);</div><div class="line">    <span class="built_in">window</span>.requestAnimationFrame(updateClock);</div><div class="line">  &#125;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>浏览器需要支持：<code>requestAnimationFrame</code><br>有关<code>requestAnimationFrame</code>的相关知识请自行查阅</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/13/JavaScript栈的实现和回文判断/" itemprop="url">
                   JavaScript栈的实现和回文判断
                 </a>
@@ -573,7 +703,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -590,7 +720,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

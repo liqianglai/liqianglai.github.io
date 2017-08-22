@@ -1,0 +1,895 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="优化,转载," />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="转载：https://zhuanlan.zhihu.com/p/25596667原文：https://blog.fortrabbit.com/mastering-http-caching
+
+Cookies你已经知道了缓存头是如何起作用的，现在我们来看下在缓存里面 cookie 起了什么作用。首先， Cookie 的设定也在 HTTP 响应头中，名字是 Set-Cookie。设置一个 cookie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缓存——从请求到响应过程的一切（下）">
+<meta property="og:url" content="http://liqianglai.github.com/2017/08/22/缓存——从请求到响应过程的一切（下）/index.html">
+<meta property="og:site_name" content="朝花夕拾">
+<meta property="og:description" content="转载：https://zhuanlan.zhihu.com/p/25596667原文：https://blog.fortrabbit.com/mastering-http-caching
+
+Cookies你已经知道了缓存头是如何起作用的，现在我们来看下在缓存里面 cookie 起了什么作用。首先， Cookie 的设定也在 HTTP 响应头中，名字是 Set-Cookie。设置一个 cookie">
+<meta property="og:updated_time" content="2017-08-22T08:41:08.602Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="缓存——从请求到响应过程的一切（下）">
+<meta name="twitter:description" content="转载：https://zhuanlan.zhihu.com/p/25596667原文：https://blog.fortrabbit.com/mastering-http-caching
+
+Cookies你已经知道了缓存头是如何起作用的，现在我们来看下在缓存里面 cookie 起了什么作用。首先， Cookie 的设定也在 HTTP 响应头中，名字是 Set-Cookie。设置一个 cookie">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'ff'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liqianglai.github.com/2017/08/22/缓存——从请求到响应过程的一切（下）/"/>
+
+
+  <title> 缓存——从请求到响应过程的一切（下） | 朝花夕拾 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d94085bc233783cf9876ecb573c01944";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">朝花夕拾</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录所学，分享所得。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'VpiymvJcxS-wv1dEHLvr','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                缓存——从请求到响应过程的一切（下）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-22T16:35:32+08:00" content="2017-08-22">
+              2017-08-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/朝花夕拾/" itemprop="url" rel="index">
+                    <span itemprop="name">朝花夕拾</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/朝花夕拾/转载/" itemprop="url" rel="index">
+                    <span itemprop="name">转载</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/22/缓存——从请求到响应过程的一切（下）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/22/缓存——从请求到响应过程的一切（下）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/08/22/缓存——从请求到响应过程的一切（下）/" class="leancloud_visitors" data-flag-title="缓存——从请求到响应过程的一切（下）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>转载：<a href="https://zhuanlan.zhihu.com/p/25596667" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/25596667</a><br>原文：<a href="https://blog.fortrabbit.com/mastering-http-caching" target="_blank" rel="external">https://blog.fortrabbit.com/mastering-http-caching</a></p>
+</blockquote>
+<h4 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h4><p>你已经知道了缓存头是如何起作用的，现在我们来看下在缓存里面 cookie 起了什么作用。首先， Cookie 的设定也在 HTTP 响应头中，名字是 Set-Cookie。设置一个 cookie 的目的是标识这个用户，就是说你需要为每个用户设置一个 cookie。</p>
+<p>想象一下缓存的场景，你是否会缓存一个包含了Set-Cookie的 HTTP 响应，在缓存时间内，每个人都会得到相同的 cookie 和同样的用户 session？你肯定不想这样。</p>
+<p>另外，用户 session 状态的改变可能会影响到响应内容的变化。一个简单的场景：电商购物车。你给用户要么提供一个空购物车，要么是用户自己选了很多物品的购物车。同样的道理，你不希望这个也被缓存，毕竟每个用户都应该有自己的购物车。</p>
+<p>一个解决方法是在运行时通过 JavaScript 设置 Cookie，比如 Google Analytics。GA 通过 JS 设置 cookie，但这个 cookie 既不影响渲染，也不设置 Set-Cookie 头。GA 会在目标网站上添加类似于 “you are tracked via Google Analytics” 的图标，但是只要这些改变都是在运行时添加进去的，就都没有问题。</p>
+<h4 id="正确处理-cookie-和缓存"><a href="#正确处理-cookie-和缓存" class="headerlink" title="正确处理 cookie 和缓存"></a>正确处理 cookie 和缓存</h4><p>首先你需要知道你网站的 cookie 的工作原理。cookie 是不是只在特定时间使用（如在用户登录过程中使用）？原则上，cookie 是不是会被注入到所有响应？</p>
+<p>正如上一节所说的，不论何时服务器返回了一个带有Set-Cookie 的响应，你都希望能够保证它不会被缓存。那么问题就转化成为，当你返回一个带有“用户特性”内容的响应时（如购物车），CDN /代理服务器，会作何操作？</p>
+<p>如果没设置 Set-Cookie，是不是允许缓存呢？</p>
+<p>如果设置了 Set-Cookie，是不是自动丢弃所有Cache-Control 头呢？</p>
+<p>其实，如果从应用层面来讲，你尽管可以去实现你所喜欢的 web 应用就可以了，至于 cookie 和 CDN 都是自动设置的。还是用 Apache 的 .htaccess 来作为例子来解释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 1) 如果 cookie 没设置，允许缓存</div><div class="line">Header set Cache-Control &quot;public max-age=3600&quot; &quot;expr=-z resp(&apos;Set-Cookie&apos;)</div><div class="line"></div><div class="line"># 2) 如果 cookie 被设置，不允许缓存</div><div class="line">Header always remove Cache-Control &quot;expr=-n resp(&apos;Set-Cookie&apos;)</div><div class="line"></div><div class="line"># 2a) 第二条的另一种形式，如果设置了 cookie，缓存时间设置成0</div><div class="line">Header set Cache-Control &quot;no-cache max-age=0 must-revalidate&quot; &quot;expr=-n resp(&apos;Set-Cookie&apos;)</div></pre></td></tr></table></figure></p>
+<ul>
+<li>规则1：如果没设置 Set-Cookie，则给Cache-Control 设置一个默认值；</li>
+<li>规则2：如果设置了 Set-Cookie，则忽略Cache-Control；</li>
+<li>规则2a：是规则2的另一种表示形式，设置最大缓存时间是 0。</li>
+</ul>
+<h4 id="无-cookie-的访问路径"><a href="#无-cookie-的访问路径" class="headerlink" title="无 cookie 的访问路径"></a>无 cookie 的访问路径</h4><p>一些 CMS / 框架还在使用一种暴力的方式种 cookie。而实际上，决定是否种 cookie 取决于不同的因素，比如会话时间因素。如果你有一个很高安全性的 web 应用，设置会话时间是 5 分钟，那么为每个响应设置一个新 cookie 都不过分。而假设你的应用连“用户特性”都没有，也就是说所有的东西对所有用户都是公用的，那么设置任何形式的 cookie 都是没有道理的。</p>
+<p>所以下面这个例子是否适合你自己，很大程度上依赖于你的应用到底是什么类型的。我们来一起看一下，我先给一下这个例子的上下文关系：假设你有个新网站，你的所有文章都在 <a href="http://www.foobar.tld/news/item/" target="_blank" rel="external">http://www.foobar.tld/news/item/</a> 这个路径下面。现在你希望能够保证，所有访问 /news/item/<id> 的路径都不包含 Set-Cookie，因为你确定不需要 cookie。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 通用 PHP 重定向做法，将&quot;?path=$1&quot;写到重定向规则里</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteRule ^(.*)$ index.php?path=$1 [NC,L,QSA]</div><div class="line">RewriteRule ^$ index.php [NC,L,QSA]</div><div class="line"></div><div class="line"># 利用 query 中的 path= 来判断</div><div class="line">&lt;If &quot;%&#123;QUERY_STRING&#125; =~ m#path=news/item/[^&amp;]+#&quot;&gt;</div><div class="line">    Header always unset Set-Cookie</div><div class="line">&lt;/If&gt;</div></pre></td></tr></table></figure></id></p>
+<p>通过这样的设置，你就可以保证所有访问/news/item/<id> 的路径都不包含 Set-Cookie。而到底是否应该设置 cookie，需要你根据你自己的应用特点来判断。.</id></p>
+<h4 id="设计出来的缓存能力"><a href="#设计出来的缓存能力" class="headerlink" title="设计出来的缓存能力"></a>设计出来的缓存能力</h4><p>有很多设计方案可以使你的 web 应用具有高缓存性。鉴于本文仅仅是一篇文章而不是一本书，我不可能每个点都深入的来讲，但是我可以着重提一下通用的方法。</p>
+<p>我还用电商作为例子。假设电商网站首页的 top 位置上展示了正在出售的物品，生成这些物品需要进行若干次的数据库操作，代价比较大，因此希望把它们缓存起来。但是，问题在于购物车，它是为那些登陆用户准备的，所以希望得到的结果是： top 物品是一样的，而针对登陆用户展示购物车。</p>
+<p>那么优化策略首先要为每个用户提供一个和登陆状态无关的“通用”页。然后通过 JavaScript 为已经生成的网页提供购物车。站在用户的视角，最终展示形式是一样的。那么现在你有了两个请求（整个网页请求 + 购物车请求），而不是一个请求（整个网页请求，包含购物车）。ok，现在你可以把代价很大的部分，即 top 物品分离出来，把它们缓存起来了。</p>
+<p>这种方法或者其延伸方法，不适合已经开发好的项目。因为它可能会改变很多接口和视图层（MVC 架构）的内容。最好你在一开始就设计好。</p>
+<h4 id="缓存失效：busting-和-purging"><a href="#缓存失效：busting-和-purging" class="headerlink" title="缓存失效：busting 和 purging"></a>缓存失效：busting 和 purging</h4><p>使用 max-age 和 s-maxage 你已经可以很好地控制一个指定的响应被缓存多长时间。但是这不足以适用于所有的情况。这些设置都是在返回响应时预设的，而现实情况往往是并不知道一个响应应该设置多久期满。回想一下刚才电商首页的例子：假设它包含了展示在 top 位置的 10 个实体。你设置了 max-age=900给这个首页以保证每15分钟刷新一次。现在，其中 1 个实体由于发布了太久了要被撤销，那么你就需要把之前的缓存响应删掉，这时候其实还没到 15 分钟，那么该怎么办？</p>
+<p>不要担心，这是一个常见的问题，有很多方法解决。首先我们先来解释一下术语：</p>
+<p>缓存 busting，是用来解决浏览器长期缓存问题，它通过版本标识来告诉浏览器该文件有一个新的版本。这时浏览器将不会从本地缓存取内容，而从源服务器请求新版本的文件。缓存 busting的详细介绍在这里：What is Cache Busting?。</p>
+<p>缓存 purging，表示直接从缓存中删除内容（即响应），以使得缓存可以立马得到更新。</p>
+<h4 id="用于版本管理的缓存-busting"><a href="#用于版本管理的缓存-busting" class="headerlink" title="用于版本管理的缓存 busting"></a>用于版本管理的缓存 busting</h4><p>这种方法经常使用在 CSS 文件、JS 文件上。通常一个确切的版本号、一串哈希或者时间戳都可以用作标识，如下面的例子：</p>
+<p>数字版本号：style-v1.css，style.css?v=1</p>
+<p>哈希串版本：style.css?d3b07384d113edec49eaa6238ad5ff00</p>
+<p>时间戳版本：styles.css?t=1486398121</p>
+<p>这时候在发布程序的时候，你只要注意文件的版本就可以了。举个例子，一个 HTML 网页通过<link rel="stylesheet" href=".."> 这种形式包含了一个 CSS 文件。CSS 文件将会被缓存起来，这时如果你想让你的新 CSS 文件起作用，那么用最新的版本号命名它就可以。如果不做任何变化的话，即便你更新了文件，这个 HTML 还会使用缓存中的旧 CSS 文件。</p>
+<h4 id="缓存-purging"><a href="#缓存-purging" class="headerlink" title="缓存 purging"></a>缓存 purging</h4><p>不同 CDN 供应商清除缓存的方式不一样。很多供应商都是基于开源软件 Varnish 来构建自己的 CDN 服务，所以一个通用的做法是在 HTPP 请求中使用 PURGE 结构，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PURGE /news/item/i-am-obsolete HTTP/1.1</div><div class="line">Host: www.foobar.tld</div></pre></td></tr></table></figure></p>
+<p>使用这个请求通常需要权限认证，或者是源确认（即 IP 白名单），不过不同供应商的要求也不一样。</p>
+<p>清除一个或几个缓存项比较容易，但是在某些场景下，却不是这么简单。举个例子，一个博客的场景，博客里面都有关于作者的部分，现在你要改变关于作者的一些内容，那么你需要手动清理所有包含了作者信息的页面。你确实可以一个一个手动清理，但是假设你有成千上万个网页被影响了，那问题就变得麻烦了。</p>
+<p>下面介绍一个解决方案。</p>
+<h5 id="代理标签"><a href="#代理标签" class="headerlink" title="代理标签"></a>代理标签</h5><p>“代理标签” 这个名字来源于 CDN 供应商 Fastly，不同供应商给它起的名字不一样，比如还有叫它“缓存标签”的，Varnish 叫它 Hashtwo/Xkey，这里我就不详细介绍其他供应商的情况了。</p>
+<p>不论它叫什么，它们的目的都是一样的：给响应打标签。这样你就可以轻松地从缓存中删除相关的标签就可以，甚至都不用知道缓存的到底是什么东西。</p>
+<p>还是拿&lt;客户端-代理-源端&gt;来举例子，源端返回一个含有代理标签的响应：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">Content-Type: text/html</div><div class="line">Content-Length: 123</div><div class="line">Surrogate-Key: top-10 company-acme category-foodstuff</div></pre></td></tr></table></figure></p>
+<p>这个例子中的标签为：top-10， company-acme，和category-foodstuff。这里给一个电商的实际场景来理解其含义：这个响应包含了电商首页的前 10 个物品，这些物品由 ACME 公司提供，并且其目录类别都设定为食品类。</p>
+<p>设置了标签以后，当物品发生了变化以后，你只需要删除包含有 company-acme 和 top-10 的标签就可以了。是不是很简单？</p>
+<p>同样，具体如何清除缓存的操作方法，不同 CDN 供应商是不一样的。</p>
+<p>写在最后</p>
+<p>上面讨论的更多的是理论上的做法，还有很多文章专门介绍不同的 CDN 的使用。如果你想深入了解的话，下面的资料每篇可能都是你需要的。</p>
+<ul>
+<li>谷歌开发者：HTTP 缓存</li>
+<li>Push CDN 和 Pull CDN</li>
+<li>CDN 类型（管理员视角）</li>
+<li>缓存头概览</li>
+<li>缓存详解（Mozilla）</li>
+<li>ETag头详解（Mozilla）</li>
+<li>Cace-Control 头详解（Mozilla）</li>
+<li>If-None-Match 头详解（Mozilla）</li>
+<li>Fastly：代理标签</li>
+<li>KeyCDN：缓存标签</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward.png" alt="来利强 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/优化/" rel="tag">#优化</a>
+          
+            <a href="/tags/转载/" rel="tag">#转载</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/22/缓存——从请求到响应过程的一切（上）/" rel="next" title="缓存——从请求到响应过程的一切（上）">
+                <i class="fa fa-chevron-left"></i> 缓存——从请求到响应过程的一切（上）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/22/缓存——从请求到响应过程的一切（下）/"
+           data-title="缓存——从请求到响应过程的一切（下）" data-url="http://liqianglai.github.com/2017/08/22/缓存——从请求到响应过程的一切（下）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="来利强" />
+          <p class="site-author-name" itemprop="name">来利强</p>
+          <p class="site-description motion-element" itemprop="description">公旦叫我了</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              More
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/liqianglai" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://git.oschina.net/lailiqiang" title="码云" target="_blank">码云</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookies"><span class="nav-text">Cookies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正确处理-cookie-和缓存"><span class="nav-text">正确处理 cookie 和缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无-cookie-的访问路径"><span class="nav-text">无 cookie 的访问路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设计出来的缓存能力"><span class="nav-text">设计出来的缓存能力</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存失效：busting-和-purging"><span class="nav-text">缓存失效：busting 和 purging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用于版本管理的缓存-busting"><span class="nav-text">用于版本管理的缓存 busting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存-purging"><span class="nav-text">缓存 purging</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#代理标签"><span class="nav-text">代理标签</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">来利强</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lailiqiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("1u9x2uzGgWmdeRjJ4Qhwlcip-gzGzoHsz", "DjerQVUz4ARxsgRLD62u9xuY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
