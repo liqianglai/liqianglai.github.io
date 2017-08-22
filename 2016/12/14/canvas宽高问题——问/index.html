@@ -82,16 +82,19 @@
 
 
 
-<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;  &amp;lt;title&amp;gt;CANVAS&amp;lt;/title&amp;gt;  &amp;lt;sty">
+<meta name="description" content="js设置canvas宽高为浏览器可用宽高，滚动条仍然出现，如下代码：
+123456789101112131415161718192021222324252627282930313233343536373839404142&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;  &amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="canvas宽高问题——问">
 <meta property="og:url" content="http://liqianglai.github.com/2016/12/14/canvas宽高问题——问/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;  &amp;lt;title&amp;gt;CANVAS&amp;lt;/title&amp;gt;  &amp;lt;sty">
-<meta property="og:updated_time" content="2016-12-14T03:12:04.430Z">
+<meta property="og:description" content="js设置canvas宽高为浏览器可用宽高，滚动条仍然出现，如下代码：
+123456789101112131415161718192021222324252627282930313233343536373839404142&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;  &amp;lt">
+<meta property="og:updated_time" content="2016-12-14T03:17:17.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas宽高问题——问">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;  &amp;lt;title&amp;gt;CANVAS&amp;lt;/title&amp;gt;  &amp;lt;sty">
+<meta name="twitter:description" content="js设置canvas宽高为浏览器可用宽高，滚动条仍然出现，如下代码：
+123456789101112131415161718192021222324252627282930313233343536373839404142&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;  &amp;lt">
 
 
 
@@ -360,7 +363,8 @@
       
 
       
-        <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>CANVAS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">    * &#123;</div><div class="line">      padding: 0;</div><div class="line">      margin: 0;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    html,</div><div class="line">    body &#123;</div><div class="line">      height: 100%;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #canvas &#123;</div><div class="line">      background-color: #cba;</div><div class="line">    &#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line">    canvas.width = <span class="built_in">document</span>.body.clientWidth;</div><div class="line">    canvas.height = <span class="built_in">document</span>.body.clientHeight;</div><div class="line">    context = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">    context.beginPath();</div><div class="line">    context.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">1.5</span> * <span class="built_in">Math</span>.PI, <span class="literal">true</span>);</div><div class="line">    context.closePath();</div><div class="line">    context.strokeStyle = <span class="string">'#f0f'</span>;</div><div class="line">    context.stroke();</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+        <p>js设置canvas宽高为浏览器可用宽高，滚动条仍然出现，如下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>CANVAS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">    * &#123;</div><div class="line">      padding: 0;</div><div class="line">      margin: 0;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    html,</div><div class="line">    body &#123;</div><div class="line">      height: 100%;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #canvas &#123;</div><div class="line">      background-color: #cba;</div><div class="line">    &#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line">    canvas.width = <span class="built_in">document</span>.body.clientWidth;</div><div class="line">    <span class="comment">// canvas.width = window.innerWeight;</span></div><div class="line">    canvas.height = <span class="built_in">document</span>.body.clientHeight;</div><div class="line">    <span class="comment">// canvas.height = window.innerHeight;</span></div><div class="line">    context = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">    context.beginPath();</div><div class="line">    context.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">1.5</span> * <span class="built_in">Math</span>.PI, <span class="literal">true</span>);</div><div class="line">    context.closePath();</div><div class="line">    context.strokeStyle = <span class="string">'#f0f'</span>;</div><div class="line">    context.stroke();</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -414,6 +418,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/22/缓存——从请求到响应过程的一切（上）/" rel="prev" title="缓存——从请求到响应过程的一切（上）">
+                缓存——从请求到响应过程的一切（上） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -485,7 +493,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -502,7 +510,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -567,8 +575,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
