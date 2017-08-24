@@ -1,0 +1,963 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="转载,Console," />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="转载：http://www.zcfy.cc/article/how-to-get-the-most-out-of-the-javascript-console-freecodecamp-3249.html
+
+JavaScript 最基础的 debug 工具之一就是console.log()。console也自带其他一些其他有用的方法，可以丰富开发者的 debug 工具包。
+你可以用console">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Console的花式玩法——我不信你都用过">
+<meta property="og:url" content="http://liqianglai.github.com/2017/08/24/Console的花式玩法——我不信你都用过/index.html">
+<meta property="og:site_name" content="朝花夕拾">
+<meta property="og:description" content="转载：http://www.zcfy.cc/article/how-to-get-the-most-out-of-the-javascript-console-freecodecamp-3249.html
+
+JavaScript 最基础的 debug 工具之一就是console.log()。console也自带其他一些其他有用的方法，可以丰富开发者的 debug 工具包。
+你可以用console">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/1.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/2.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/3.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/4.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/5.png">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/6.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/7.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/8.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/9.png">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/10.png">
+<meta property="og:updated_time" content="2017-08-24T10:35:22.623Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Console的花式玩法——我不信你都用过">
+<meta name="twitter:description" content="转载：http://www.zcfy.cc/article/how-to-get-the-most-out-of-the-javascript-console-freecodecamp-3249.html
+
+JavaScript 最基础的 debug 工具之一就是console.log()。console也自带其他一些其他有用的方法，可以丰富开发者的 debug 工具包。
+你可以用console">
+<meta name="twitter:image" content="http://liqianglai.github.com/images/20170824/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'ff'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liqianglai.github.com/2017/08/24/Console的花式玩法——我不信你都用过/"/>
+
+
+  <title> Console的花式玩法——我不信你都用过 | 朝花夕拾 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d94085bc233783cf9876ecb573c01944";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">朝花夕拾</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录所学，分享所得。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'VpiymvJcxS-wv1dEHLvr','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Console的花式玩法——我不信你都用过
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-24T18:04:45+08:00" content="2017-08-24">
+              2017-08-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/朝花夕拾/" itemprop="url" rel="index">
+                    <span itemprop="name">朝花夕拾</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/朝花夕拾/转载/" itemprop="url" rel="index">
+                    <span itemprop="name">转载</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/24/Console的花式玩法——我不信你都用过/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/24/Console的花式玩法——我不信你都用过/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/08/24/Console的花式玩法——我不信你都用过/" class="leancloud_visitors" data-flag-title="Console的花式玩法——我不信你都用过">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>转载：<a href="http://www.zcfy.cc/article/how-to-get-the-most-out-of-the-javascript-console-freecodecamp-3249.html" target="_blank" rel="external">http://www.zcfy.cc/article/how-to-get-the-most-out-of-the-javascript-console-freecodecamp-3249.html</a></p>
+</blockquote>
+<p>JavaScript 最基础的 debug 工具之一就是<code>console.log()</code>。<code>console</code>也自带其他一些其他有用的方法，可以丰富开发者的 debug 工具包。</p>
+<p>你可以用console来完成下面这些任务：</p>
+<ul>
+<li>输出一个定时器帮助进行简单基准测试</li>
+<li>输出一个表格，用易于阅读的格式展示一个数组或对象</li>
+<li>应用 CSS 颜色和其他样式输出内容</li>
+</ul>
+<h4 id="Console-对象"><a href="#Console-对象" class="headerlink" title="Console 对象"></a>Console 对象</h4><p><code>console</code>对象赋予了你访问浏览器控制台的权限。它允许输出字符串，数组和对象，这对调试代码很有帮助。<code>console</code>对象是<code>window</code>对象的一部分，被浏览器对象模型(BOM)所支持。</p>
+<p>我们可以通过下面两种方式的任一种来访问<code>console</code></p>
+<a id="more"></a>
+<ul>
+<li><code>window.console.log(&#39;This works&#39;)</code></li>
+<li><code>console.log(&#39;So does this&#39;)</code></li>
+</ul>
+<p>第二种方式经常使用，接下来我们为了减少输入也使用这种方式。<br>一个关于 BOM 的快速注解：它没有一套统一的标准，所以每个浏览器的实现方式略有不同。所有的例子我都在 Chrome 和 Firefox 下做了测试，但取决于你的浏览器，你所得到的输出内容可能会有所不同。</p>
+<h4 id="输出文本"><a href="#输出文本" class="headerlink" title="输出文本"></a>输出文本</h4><p><img src="/images/20170824/1.jpg" alt=""></p>
+<p>在控制台记录文本</p>
+<p><code>console</code>对象最常用的一个元素是<code>console.log</code>。很多场景下，你都需要使用它来完成工作。</p>
+<p>有四种不同的方式可用于在控制台中输出信息：</p>
+<ul>
+<li><code>log</code></li>
+<li><code>info</code></li>
+<li><code>warn</code></li>
+<li><code>error</code></li>
+</ul>
+<p>这四种的工作方式是一样的。你所要做的只是在选定的方法上传递一个或多个参数。然后它会展示一个不同的图标来表明它的日志级别。在下面的这个例子中，你可以发现信息日志与警告或错误日志之间的差别。<br><img src="/images/20170824/2.jpg" alt=""></p>
+<p>简单且易于阅读的输出<br><img src="/images/20170824/3.jpg" alt=""><br>随着内容的增多，控制台的输出会变得难以阅读</p>
+<p>你可能已经注意到了错误的日志信息——它比其他的看起来更加显眼。它展示了<code>info</code>和<code>warn</code>都没有的红色背景和堆栈跟踪。不过，在 Chrome 中<code>warn</code>有一个黄色的背景。</p>
+<p>这些视觉上的区别能让你快速区分控制台上的错误信息或者警告信息。你要确保它们在准生产环境中会被移除，除非你想警告那些在你的代码下出错的开发者。</p>
+<h4 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h4><p>这项技术，在字符串中使用占位符，并且用传递给该方法的其他参数替换占位符，从而完成字符串的替换。例如：</p>
+<ul>
+<li>Input: <code>console.log(&#39;string %s&#39;, &#39;substitutions&#39;)</code></li>
+<li>Output: <code>string substitutions</code></li>
+</ul>
+<p>这个<code>%s</code>是出现在逗号后面第二个参数<code>&#39;substitutions&#39;</code>的占位符。任何字符串，数字或者数组都将会转换为字符串并替换这个<code>%s</code>。如果你传递一个对象，它将会显示<code>[object Object]</code>。</p>
+<p>如果你想传递一个对象，你需要使用<code>%o</code>或<code>%O</code>来替代<code>%s</code>。</p>
+<p><code>console.log(&#39;this is an object %o&#39;, { obj: { obj2: &#39;hello&#39; }})</code><br><img src="/images/20170824/4.jpg" alt=""></p>
+<h5 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h5><p>字符串替换也能用于整数和浮点数，通过以下方式使用：</p>
+<ul>
+<li><code>%i</code>或者<code>%d</code> 用于替换整数,</li>
+<li><p><code>%f</code> 用于替换浮点数.</p>
+</li>
+<li><p>Input: <code>console.log(&#39;int: %d, floating-point: %f&#39;, 1, 1.5)</code></p>
+</li>
+<li>Output: <code>int: 1, floating-point: 1.500000</code></li>
+</ul>
+<p>通过使用<code>%.1</code>f可以将浮点数格式化为小数点后只保留一位有效数字。也可以使用<code>%.nf</code>来指定小数点后保留<code>n</code>位数字。</p>
+<p>如果我们格式化上面的例子，让浮点数在小数点后只保留一位数字，结果将看起来像下面这样：</p>
+<ul>
+<li>Input: <code>console.log(&#39;int: %d, floating-point: %.1f&#39;, 1, 1.5)</code></li>
+<li>Output: <code>int: 1, floating-point: 1.5</code></li>
+</ul>
+<h5 id="格式化符号"><a href="#格式化符号" class="headerlink" title="格式化符号"></a>格式化符号</h5><ul>
+<li><code>%s</code> 用字符串替换元素</li>
+<li><code>%(d|i)</code> 用整数替换元素</li>
+<li><code>%f</code> 用浮点数替换元素</li>
+<li><code>%(o|O)</code> 元素作为一个对象来显示</li>
+<li><code>%c</code> 应用提供的 CSS</li>
+</ul>
+<h5 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h5><p>随着 ES6 的来临，模板字符串是字符连接的替代。它们使用反引号（`` ）来替代引号，并且可以在${}中使用变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const a = &apos;substitutions&apos;;</div><div class="line">console.log(`bear: $&#123;a&#125;`);</div><div class="line">// bear: substitutions</div></pre></td></tr></table></figure></p>
+<p>在模板字符串中对象以<code>[object Object]</code>来显示，所以你需要使用<code>%o``或</code>%O`进行字符串替换从而查看详情，或者单独打印对象本身。</p>
+<p>使用字符串替换或模板字符串写出的代码比使用字符串连接写出的更易于阅读：<code>console.log(&#39;hello&#39; + str + &#39;!&#39;);</code>。</p>
+<h5 id="插入漂亮的颜色"><a href="#插入漂亮的颜色" class="headerlink" title="插入漂亮的颜色"></a>插入漂亮的颜色</h5><p>是时候展示一些有趣和丰富多彩的东西了！</p>
+<p>现在通过使用字符串替换我们可以让<code>console</code>显示不同的颜色。</p>
+<p>我将运行一个伪装的 Ajax 例子来展示成功（绿色）和失败（红色）的消息。下面是输出和代码：<br><img src="/images/20170824/5.png" alt=""></p>
+<p>成功的熊和失败的蝙蝠<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">const success = [</div><div class="line"> &apos;background: green&apos;,</div><div class="line"> &apos;color: white&apos;,</div><div class="line"> &apos;display: block&apos;,</div><div class="line"> &apos;text-align: center&apos;</div><div class="line">].join(&apos;;&apos;);</div><div class="line">const failure = [</div><div class="line"> &apos;background: red&apos;,</div><div class="line"> &apos;color: white&apos;,</div><div class="line"> &apos;display: block&apos;,</div><div class="line"> &apos;text-align: center&apos;</div><div class="line">].join(&apos;;&apos;);</div><div class="line">console.info(&apos;%c /dancing/bears was Successful!&apos;, success);</div><div class="line">console.log(&#123;data: &#123;</div><div class="line"> name: &apos;Bob&apos;,</div><div class="line"> age: &apos;unknown&apos;</div><div class="line">&#125;&#125;); // &quot;mocked&quot; data response</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.error(&apos;%c /dancing/bats failed!&apos;, failure);</div><div class="line">console.log(&apos;/dancing/bats Does not exist&apos;);</div></pre></td></tr></table></figure>
+<p>在字符串替换中，通过使用<code>%c</code>占位符可以应用 CSS 样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.error(&apos;%c /dancing/bats failed!&apos;, failure);</div></pre></td></tr></table></figure></p>
+<p>然后，将 CSS 样式作为一个字符串参数，你就可以得到有 CSS 样式的输出。你也可以在字符串中添加不止一个<code>%c</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;%cred %cblue %cwhite&apos;,&apos;color:red;&apos;,&apos;color:blue;&apos;, &apos;color: white;&apos;)</div></pre></td></tr></table></figure>
+<p>这将会以它们相应的颜色输出单词：‘red’, ‘blue’ 和 ‘white’。</p>
+<p>控制台支持不少 CSS 属性。我推荐你试验一下哪个行哪个不行。再说一遍，你的结果可能会因你所用的浏览器而有所不同。</p>
+<h4 id="其它可用方法"><a href="#其它可用方法" class="headerlink" title="其它可用方法"></a>其它可用方法</h4><p>有一些可用的其他console方法。注意下面这些项目没有统一的 API 标准，各浏览器之间可能是不兼容的。这些例子都是在 Firefox 51.0.1 版本下创建的。</p>
+<h5 id="Assert"><a href="#Assert" class="headerlink" title="Assert()"></a>Assert()</h5><p><code>Assert</code> 有两个参数 — 如果第一个参数是假值，它将会展示第二个参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let isTrue = false;</div><div class="line">console.assert(isTrue, &apos;This will display&apos;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">isTrue = true;</div><div class="line">console.assert(isTrue, &apos;This will not&apos;);</div></pre></td></tr></table></figure>
+<p>只有断言是假，第二个参数才会在控制台中输出。正如刚才所提到的，它输出一个错误级别的日志，给出了红色的错误信息和堆栈跟踪。</p>
+<h5 id="Dir"><a href="#Dir" class="headerlink" title="Dir()"></a>Dir()</h5><p><code>dir</code>方法显示一个所传对象的可交互列表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.dir(document.body);</div></pre></td></tr></table></figure></p>
+<p><img src="/images/20170824/6.jpg" alt=""></p>
+<p>Chrome 显示<code>dir</code>有些不同。</p>
+<p>最终，<code>dir</code>只能节省一两次点击。如果你需要检查一个 API 响应返回的对象，通过这种结构化的方式来显示，能够节省你更多的时间。</p>
+<h5 id="Table"><a href="#Table" class="headerlink" title="Table()"></a>Table()</h5><p><code>table</code>方法使用表格来显示数组或者对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.table([&apos;Javascript&apos;, &apos;PHP&apos;, &apos;Perl&apos;, &apos;C++&apos;]);</div></pre></td></tr></table></figure>
+<p><img src="/images/20170824/7.jpg" alt=""></p>
+<p>输出一个数组</p>
+<p>数组的索引或者对象的属性名显示在左侧一列，对应的值则显示在右侧一列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const superhero = &#123;</div><div class="line">    firstname: &apos;Peter&apos;,</div><div class="line">    lastname: &apos;Parker&apos;,</div><div class="line">&#125;</div><div class="line">console.table(superhero);</div></pre></td></tr></table></figure>
+<p><img src="/images/20170824/8.jpg" alt=""></p>
+<p>输出一个对象</p>
+<p>Chrome 用户请注意： 这是我同事提醒我注意的，上面这些<code>table</code>方法的例子在 Chrome 中似乎行不通。你可以通过将需要展示的对象或者数组再放到另外一个数组中解决这个问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.table([[&apos;Javascript&apos;, &apos;PHP&apos;, &apos;Perl&apos;, &apos;C++&apos;]]);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const superhero = &#123;</div><div class="line">    firstname: &apos;Peter&apos;,</div><div class="line">    lastname: &apos;Parker&apos;,</div><div class="line">&#125;</div><div class="line">console.table([superhero]);</div></pre></td></tr></table></figure>
+<h5 id="Group"><a href="#Group" class="headerlink" title="Group()"></a>Group()</h5><p><code>console.group()</code>至少由三次<code>console</code>调用组成，它可能是需要打字最多的方法。但它也是最有用的方法之一（尤其是对于使用Redux Logger的开发者）</p>
+<p>一个基础的调用方式看起来是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.group();</div><div class="line">console.log(&apos;I will output&apos;);</div><div class="line">console.group();</div><div class="line">console.log(&apos;more indents&apos;)</div><div class="line">console.groupEnd();</div><div class="line">console.log(&apos;ohh look a bear&apos;);</div><div class="line">console.groupEnd();</div></pre></td></tr></table></figure></p>
+<p>它将会输出多个层级并且根据浏览器的不同，显示也有所不同。</p>
+<p>Firefox 显示一个缩进的列表：<br><img src="/images/20170824/9.png" alt=""><br>Chrome 以对象的风格来显示：<br><img src="/images/20170824/10.png" alt=""></p>
+<p>每次调用<code>console.group()</code>都将会启用一个新分组，或者在被调用分组的内部新建一个层级。每次调用<code>console.groupEnd()</code>将会结束当前分组或层级并上移一级。</p>
+<p>我发现因为 Chrome 的显示风格像一个可折叠的对象，所以更加易于阅读。</p>
+<p>你能传递给<code>group</code>一个头部参数，可以显示在<code>console.group</code>之上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.group(&apos;Header&apos;);</div></pre></td></tr></table></figure></p>
+<p>如果你调用<code>console.groupCollapsed()</code>可以从一开始就以折叠的方式显示分组。基于我的经验，这只在 Chrome 中有效。</p>
+<h5 id="Time"><a href="#Time" class="headerlink" title="Time()"></a>Time()</h5><p><code>time</code>方法，像上面的<code>group</code>方法一样，也有两个部分。</p>
+<p>一个启动计时器的方法和一个停止它的方法。</p>
+<p>一旦计时器完成，将会以毫秒为单位输出总的执行时间。</p>
+<p>使用<code>console.time(&#39;id for timer&#39;)</code>启动一个计时器，使用<code>console.timeEnd(&#39;id for timer&#39;)</code>来停止计时。最多同时运行 10,000 个定时器。</p>
+<p>输出的内容看起来像这样：<code>timer: 0.57ms</code></p>
+<p>当你需要快速做一个基准测试的时候，它非常的有用。</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>我们深入了解了一下<code>console</code>对象和它的一些方法。当你需要调试代码的时候，这些方法是很强大的可用工具。</p>
+<p>有一些方法我没有提到，因为它们的 API 一直在变。你可以在MDN Web API page和living spec page学习有关控制台的更多内容</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward.png" alt="来利强 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/转载/" rel="tag">#转载</a>
+          
+            <a href="/tags/Console/" rel="tag">#Console</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/22/React学习笔记（不定期更新）/" rel="next" title="React学习笔记（不定期更新）">
+                <i class="fa fa-chevron-left"></i> React学习笔记（不定期更新）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/24/Console的花式玩法——我不信你都用过/"
+           data-title="Console的花式玩法——我不信你都用过" data-url="http://liqianglai.github.com/2017/08/24/Console的花式玩法——我不信你都用过/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="来利强" />
+          <p class="site-author-name" itemprop="name">来利强</p>
+          <p class="site-description motion-element" itemprop="description">公旦叫我了</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              More
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/liqianglai" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://git.oschina.net/lailiqiang" title="码云" target="_blank">码云</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Console-对象"><span class="nav-text">Console 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出文本"><span class="nav-text">输出文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串替换"><span class="nav-text">字符串替换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数字"><span class="nav-text">数字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#格式化符号"><span class="nav-text">格式化符号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串模板"><span class="nav-text">字符串模板</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#插入漂亮的颜色"><span class="nav-text">插入漂亮的颜色</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其它可用方法"><span class="nav-text">其它可用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Assert"><span class="nav-text">Assert()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dir"><span class="nav-text">Dir()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Table"><span class="nav-text">Table()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Group"><span class="nav-text">Group()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Time"><span class="nav-text">Time()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结论"><span class="nav-text">结论</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">来利强</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lailiqiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("1u9x2uzGgWmdeRjJ4Qhwlcip-gzGzoHsz", "DjerQVUz4ARxsgRLD62u9xuY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
