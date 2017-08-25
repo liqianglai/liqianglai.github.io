@@ -287,6 +287,142 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/25/ECMAScript6学习笔记（不定期更新）/" itemprop="url">
+                  ECMAScript6学习笔记（不定期更新）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-25T10:41:21+08:00" content="2017-08-25">
+              2017-08-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/25/ECMAScript6学习笔记（不定期更新）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/25/ECMAScript6学习笔记（不定期更新）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/08/25/ECMAScript6学习笔记（不定期更新）/" class="leancloud_visitors" data-flag-title="ECMAScript6学习笔记（不定期更新）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>更新于：2017年8月25日10:52:38<br>主要参考：<a href="http://es6.ruanyifeng.com/">ECMAScript 6 入门</a></p>
+</blockquote>
+<h4 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a>let 和 const 命令</h4><h5 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h5><p><code>var</code>命令会发生”变量提升“现象，即变量可以在声明之前使用，值为<code>undefined</code>。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。</p>
+<p>为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// var 的情况</span></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 输出undefined</span></div><div class="line"><span class="keyword">var</span> foo = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="comment">// let 的情况</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// 报错ReferenceError</span></div><div class="line"><span class="keyword">let</span> bar = <span class="number">2</span>;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，变量<code>foo</code>用<code>var</code>命令声明，会发生变量提升，即脚本开始运行时，变量<code>foo</code>已经存在了，但是没有值，所以会输出<code>undefined</code>。变量<code>bar</code>用<code>let</code>命令声明，不会发生变量提升。这表示在声明它之前，变量<code>bar</code>是不存在的，这时如果用到它，就会抛出一个错误。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/25/ECMAScript6学习笔记（不定期更新）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/24/Console的花式玩法——我不信你都用过/" itemprop="url">
                   Console的花式玩法——我不信你都用过
                 </a>
@@ -469,8 +605,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -481,7 +617,7 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/React/" itemprop="url" rel="index">
+                  <a href="/categories/前端/React/" itemprop="url" rel="index">
                     <span itemprop="name">React</span>
                   </a>
                 </span>
@@ -533,11 +669,14 @@
         
           
             <blockquote>
-<p>更新于：2017年8月22日17:03:36</p>
+<p>更新于：2017年8月25日10:52:38</p>
 </blockquote>
 <h4 id="零零碎碎"><a href="#零零碎碎" class="headerlink" title="零零碎碎"></a>零零碎碎</h4><h5 id="首字母大写"><a href="#首字母大写" class="headerlink" title="首字母大写"></a>首字母大写</h5><p>组件首字母要大写，React 会将小写开头的标签名认为是 HTML 原生标签</p>
 <h5 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h5><p>如果你已经有了个 props 对象，并且想在 JSX 中传递它，你可以使用 <code>...</code> 作为扩展操作符来传递整个属性对象。下面两个组件是等效的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">App1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;Greeting firstName="Ben" lastName="Hector" /&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function App2() &#123;</div><div class="line">  const props = &#123;firstName: 'Ben', lastName: 'Hector'&#125;;</div><div class="line">  return &lt;Greeting &#123;...props&#125; /&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>当你构建通用容器时，扩展属性会非常有用。然而，这样做也可能让很多不相关的属性，传递到不需要它们的组件中使代码变得混乱。React建议你谨慎使用此语法。</p>
+<h4 id="ant-design-mobile"><a href="#ant-design-mobile" class="headerlink" title="ant-design-mobile"></a>ant-design-mobile</h4><ul>
+<li><a href="https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596" target="_blank" rel="external">ListView一些问题</a></li>
+</ul>
 <h4 id="Create-React-App"><a href="#Create-React-App" class="headerlink" title="Create React App"></a>Create React App</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1. 自定义配置，需要执行，此操作为单向不可逆</span></div><div class="line">yarn eject</div><div class="line"></div><div class="line"><span class="comment"># 2. 路由</span></div><div class="line">React-Router</div><div class="line"></div><div class="line"><span class="comment"># 3. 图表的支持</span></div><div class="line">echarts-for-react</div><div class="line"></div><div class="line"><span class="comment"># 4. sass支持</span></div><div class="line">sass-loader</div><div class="line">node-sass</div><div class="line"></div><div class="line"><span class="comment"># 5. 路由依赖加载</span></div><div class="line">lazy-load-react</div></pre></td></tr></table></figure>
 <h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><h5 id="1-初始化过程"><a href="#1-初始化过程" class="headerlink" title="1. 初始化过程"></a>1. 初始化过程</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. constructor</div><div class="line">2. componentWillMount</div><div class="line">3. render</div><div class="line">4. componentDidMount</div></pre></td></tr></table></figure>
 <h5 id="2-更新过程"><a href="#2-更新过程" class="headerlink" title="2. 更新过程"></a>2. 更新过程</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate <span class="comment"># true 执行以下过程， false 中断更新</span></div><div class="line">1. componentWillUpdate</div><div class="line">2. render</div><div class="line">3. componentDidUpdate</div></pre></td></tr></table></figure>
@@ -922,8 +1061,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/Canvas/" itemprop="url" rel="index">
+                    <span itemprop="name">Canvas</span>
                   </a>
                 </span>
 
@@ -1051,8 +1202,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Node-js/" itemprop="url" rel="index">
-                    <span itemprop="name">Node.js</span>
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/后端/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
                   </a>
                 </span>
 
@@ -1209,8 +1372,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -1315,8 +1478,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/01/【转载】幻数/" itemprop="url">
-                  【转载】幻数
+                <a class="post-title-link" href="/2016/11/01/幻数/" itemprop="url">
+                  幻数
                 </a>
               
             
@@ -1371,8 +1534,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/01/【转载】幻数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/【转载】幻数/" itemprop="commentsCount"></span>
+                <a href="/2016/11/01/幻数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/幻数/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1382,7 +1545,7 @@
 
           
           
-             <span id="/2016/11/01/【转载】幻数/" class="leancloud_visitors" data-flag-title="【转载】幻数">
+             <span id="/2016/11/01/幻数/" class="leancloud_visitors" data-flag-title="幻数">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1465,8 +1628,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/27/【转载】一道常被人轻视的JS面试题/" itemprop="url">
-                  【转载】一道常被人轻视的JS面试题
+                <a class="post-title-link" href="/2016/10/27/一道常被人轻视的JS面试题/" itemprop="url">
+                  一道常被人轻视的JS面试题
                 </a>
               
             
@@ -1493,8 +1656,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -1505,7 +1668,7 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/转载/" itemprop="url" rel="index">
+                  <a href="/categories/前端/转载/" itemprop="url" rel="index">
                     <span itemprop="name">转载</span>
                   </a>
                 </span>
@@ -1521,8 +1684,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/27/【转载】一道常被人轻视的JS面试题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/【转载】一道常被人轻视的JS面试题/" itemprop="commentsCount"></span>
+                <a href="/2016/10/27/一道常被人轻视的JS面试题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/一道常被人轻视的JS面试题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1532,7 +1695,7 @@
 
           
           
-             <span id="/2016/10/27/【转载】一道常被人轻视的JS面试题/" class="leancloud_visitors" data-flag-title="【转载】一道常被人轻视的JS面试题">
+             <span id="/2016/10/27/一道常被人轻视的JS面试题/" class="leancloud_visitors" data-flag-title="一道常被人轻视的JS面试题">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1561,142 +1724,7 @@
 <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">1</span>); &#125;;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line">Foo.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">2</span>); &#125;;</div><div class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">3</span>); &#125;;</div><div class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">4</span>); &#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert(<span class="number">5</span>); &#125;</div><div class="line"></div><div class="line"><span class="comment">//请写出以下输出结果：</span></div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line"><span class="keyword">new</span> Foo.getName();</div><div class="line"><span class="keyword">new</span> Foo().getName();</div><div class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName();</div></pre></td></tr></table></figure>
 <h4 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Foo.getName(); <span class="comment">// 2</span></div><div class="line">getName(); <span class="comment">// 4</span></div><div class="line">Foo().getName(); <span class="comment">// 1</span></div><div class="line">getName(); <span class="comment">// 1</span></div><div class="line"><span class="keyword">new</span> Foo.getName(); <span class="comment">// 2</span></div><div class="line"><span class="keyword">new</span> Foo().getName(); <span class="comment">// 3</span></div><div class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName(); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/27/【转载】一道常被人轻视的JS面试题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/21/indexedDB入门/" itemprop="url">
-                  IndexedDB入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-21T14:48:59+08:00" content="2016-10-21">
-              2016-10-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/21/indexedDB入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/indexedDB入门/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/21/indexedDB入门/" class="leancloud_visitors" data-flag-title="IndexedDB入门">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>修改时间<br>2016年10月25日11:32:22</p>
-<p>本文主要讲述了indexedDB的初步使用，<br>主要包括数据的增、删、改、查、和索引的创建和查询</p>
-</blockquote>
-<h4 id="1-检查浏览器是否支持indexedDB"><a href="#1-检查浏览器是否支持indexedDB" class="headerlink" title="1. 检查浏览器是否支持indexedDB"></a>1. 检查浏览器是否支持indexedDB</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.indexedDB = <span class="built_in">window</span>.indexedDB</div><div class="line">  || <span class="built_in">window</span>.mozIndexedDB</div><div class="line">  || <span class="built_in">window</span>.webkitIndexedDB</div><div class="line">  || <span class="built_in">window</span>.msIndexedDB;</div><div class="line"><span class="built_in">window</span>.IDBTransaction = <span class="built_in">window</span>.IDBTransaction</div><div class="line">  || <span class="built_in">window</span>.webkitIDBTransaction</div><div class="line">  || <span class="built_in">window</span>.msIDBTransaction;</div><div class="line"><span class="built_in">window</span>.IDBKeyRange = <span class="built_in">window</span>.IDBKeyRange</div><div class="line">  || <span class="built_in">window</span>.webkitIDBKeyRange</div><div class="line">  || <span class="built_in">window</span>.msIDBKeyRange;</div><div class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.indexedDB) <span class="built_in">console</span>.warn(<span class="string">"您的浏览器不支持indexDB"</span>);</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/21/indexedDB入门/#more" rel="contents">
+            <a class="btn" href="/2016/10/27/一道常被人轻视的JS面试题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1771,7 +1799,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1779,7 +1807,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1788,7 +1816,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

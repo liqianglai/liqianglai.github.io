@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="转载,Console," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -98,13 +98,13 @@ JavaScript 最基础的 debug 工具之一就是console.log()。console也自带
 <meta property="og:image" content="http://liqianglai.github.com/images/20170824/2.jpg">
 <meta property="og:image" content="http://liqianglai.github.com/images/20170824/3.jpg">
 <meta property="og:image" content="http://liqianglai.github.com/images/20170824/4.jpg">
-<meta property="og:image" content="http://liqianglai.github.com/images/20170824/5.png">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/5.jpg">
 <meta property="og:image" content="http://liqianglai.github.com/images/20170824/6.jpg">
 <meta property="og:image" content="http://liqianglai.github.com/images/20170824/7.jpg">
 <meta property="og:image" content="http://liqianglai.github.com/images/20170824/8.jpg">
-<meta property="og:image" content="http://liqianglai.github.com/images/20170824/9.png">
-<meta property="og:image" content="http://liqianglai.github.com/images/20170824/10.png">
-<meta property="og:updated_time" content="2017-08-24T10:35:22.623Z">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/9.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170824/10.jpg">
+<meta property="og:updated_time" content="2017-08-25T03:35:03.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Console的花式玩法——我不信你都用过">
 <meta name="twitter:description" content="转载：http://www.zcfy.cc/article/how-to-get-the-most-out-of-the-javascript-console-freecodecamp-3249.html
@@ -459,7 +459,7 @@ JavaScript 最基础的 debug 工具之一就是console.log()。console也自带
 <p>使用字符串替换或模板字符串写出的代码比使用字符串连接写出的更易于阅读：<code>console.log(&#39;hello&#39; + str + &#39;!&#39;);</code>。</p>
 <h5 id="插入漂亮的颜色"><a href="#插入漂亮的颜色" class="headerlink" title="插入漂亮的颜色"></a>插入漂亮的颜色</h5><p>是时候展示一些有趣和丰富多彩的东西了！</p>
 <p>现在通过使用字符串替换我们可以让<code>console</code>显示不同的颜色。</p>
-<p>我将运行一个伪装的 Ajax 例子来展示成功（绿色）和失败（红色）的消息。下面是输出和代码：<br><img src="/images/20170824/5.png" alt=""></p>
+<p>我将运行一个伪装的 Ajax 例子来展示成功（绿色）和失败（红色）的消息。下面是输出和代码：<br><img src="/images/20170824/5.jpg" alt=""></p>
 <p>成功的熊和失败的蝙蝠<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">const success = [</div><div class="line"> &apos;background: green&apos;,</div><div class="line"> &apos;color: white&apos;,</div><div class="line"> &apos;display: block&apos;,</div><div class="line"> &apos;text-align: center&apos;</div><div class="line">].join(&apos;;&apos;);</div><div class="line">const failure = [</div><div class="line"> &apos;background: red&apos;,</div><div class="line"> &apos;color: white&apos;,</div><div class="line"> &apos;display: block&apos;,</div><div class="line"> &apos;text-align: center&apos;</div><div class="line">].join(&apos;;&apos;);</div><div class="line">console.info(&apos;%c /dancing/bears was Successful!&apos;, success);</div><div class="line">console.log(&#123;data: &#123;</div><div class="line"> name: &apos;Bob&apos;,</div><div class="line"> age: &apos;unknown&apos;</div><div class="line">&#125;&#125;); // &quot;mocked&quot; data response</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.error(&apos;%c /dancing/bats failed!&apos;, failure);</div><div class="line">console.log(&apos;/dancing/bats Does not exist&apos;);</div></pre></td></tr></table></figure>
 <p>在字符串替换中，通过使用<code>%c</code>占位符可以应用 CSS 样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.error(&apos;%c /dancing/bats failed!&apos;, failure);</div></pre></td></tr></table></figure></p>
@@ -490,7 +490,7 @@ JavaScript 最基础的 debug 工具之一就是console.log()。console也自带
 <h5 id="Group"><a href="#Group" class="headerlink" title="Group()"></a>Group()</h5><p><code>console.group()</code>至少由三次<code>console</code>调用组成，它可能是需要打字最多的方法。但它也是最有用的方法之一（尤其是对于使用Redux Logger的开发者）</p>
 <p>一个基础的调用方式看起来是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.group();</div><div class="line">console.log(&apos;I will output&apos;);</div><div class="line">console.group();</div><div class="line">console.log(&apos;more indents&apos;)</div><div class="line">console.groupEnd();</div><div class="line">console.log(&apos;ohh look a bear&apos;);</div><div class="line">console.groupEnd();</div></pre></td></tr></table></figure></p>
 <p>它将会输出多个层级并且根据浏览器的不同，显示也有所不同。</p>
-<p>Firefox 显示一个缩进的列表：<br><img src="/images/20170824/9.png" alt=""><br>Chrome 以对象的风格来显示：<br><img src="/images/20170824/10.png" alt=""></p>
+<p>Firefox 显示一个缩进的列表：<br><img src="/images/20170824/9.jpg" alt=""><br>Chrome 以对象的风格来显示：<br><img src="/images/20170824/10.jpg" alt=""></p>
 <p>每次调用<code>console.group()</code>都将会启用一个新分组，或者在被调用分组的内部新建一个层级。每次调用<code>console.groupEnd()</code>将会结束当前分组或层级并上移一级。</p>
 <p>我发现因为 Chrome 的显示风格像一个可折叠的对象，所以更加易于阅读。</p>
 <p>你能传递给<code>group</code>一个头部参数，可以显示在<code>console.group</code>之上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.group(&apos;Header&apos;);</div></pre></td></tr></table></figure></p>
@@ -541,9 +541,7 @@ JavaScript 最基础的 debug 工具之一就是console.log()。console也自带
       
         <div class="post-tags">
           
-            <a href="/tags/转载/" rel="tag">#转载</a>
-          
-            <a href="/tags/Console/" rel="tag">#Console</a>
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
         </div>
       
@@ -559,6 +557,10 @@ JavaScript 最基础的 debug 工具之一就是console.log()。console也自带
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/25/ECMAScript6学习笔记（不定期更新）/" rel="prev" title="ECMAScript6学习笔记（不定期更新）">
+                ECMAScript6学习笔记（不定期更新） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -630,7 +632,7 @@ JavaScript 最基础的 debug 工具之一就是console.log()。console也自带
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -638,7 +640,7 @@ JavaScript 最基础的 debug 工具之一就是console.log()。console也自带
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -647,7 +649,7 @@ JavaScript 最基础的 debug 工具之一就是console.log()。console也自带
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
