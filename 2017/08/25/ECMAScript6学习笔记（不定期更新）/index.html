@@ -82,7 +82,7 @@
 
 
 
-<meta name="description" content="更新于：2017年8月25日10:52:38主要参考：ECMAScript 6 入门
+<meta name="description" content="更新于：2017年8月29日18:00:30主要参考：ECMAScript 6 入门
 
 let 和 const 命令不存在变量提升var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。
 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。1234567">
@@ -90,14 +90,14 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
 <meta property="og:title" content="ECMAScript6学习笔记（不定期更新）">
 <meta property="og:url" content="http://liqianglai.github.com/2017/08/25/ECMAScript6学习笔记（不定期更新）/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="更新于：2017年8月25日10:52:38主要参考：ECMAScript 6 入门
+<meta property="og:description" content="更新于：2017年8月29日18:00:30主要参考：ECMAScript 6 入门
 
 let 和 const 命令不存在变量提升var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。
 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。1234567">
-<meta property="og:updated_time" content="2017-08-25T03:39:34.231Z">
+<meta property="og:updated_time" content="2017-08-29T10:00:31.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript6学习笔记（不定期更新）">
-<meta name="twitter:description" content="更新于：2017年8月25日10:52:38主要参考：ECMAScript 6 入门
+<meta name="twitter:description" content="更新于：2017年8月29日18:00:30主要参考：ECMAScript 6 入门
 
 let 和 const 命令不存在变量提升var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。
 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。1234567">
@@ -370,12 +370,29 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
 
       
         <blockquote>
-<p>更新于：2017年8月25日10:52:38<br>主要参考：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></p>
+<p>更新于：2017年8月29日18:00:30<br>主要参考：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></p>
 </blockquote>
 <h4 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a>let 和 const 命令</h4><h5 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h5><p><code>var</code>命令会发生”变量提升“现象，即变量可以在声明之前使用，值为<code>undefined</code>。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。</p>
 <p>为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// var 的情况</span></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 输出undefined</span></div><div class="line"><span class="keyword">var</span> foo = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="comment">// let 的情况</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// 报错ReferenceError</span></div><div class="line"><span class="keyword">let</span> bar = <span class="number">2</span>;</div></pre></td></tr></table></figure></p>
 <p>上面代码中，变量<code>foo</code>用<code>var</code>命令声明，会发生变量提升，即脚本开始运行时，变量<code>foo</code>已经存在了，但是没有值，所以会输出<code>undefined</code>。变量<code>bar</code>用<code>let</code>命令声明，不会发生变量提升。这表示在声明它之前，变量<code>bar</code>是不存在的，这时如果用到它，就会抛出一个错误。</p>
 <a id="more"></a>
+<h5 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h5><p>只要块级作用域内存在<code>let</code>命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></div><div class="line">  <span class="keyword">let</span> tmp;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，存在全局变量<code>tmp</code>，但是块级作用域内let又声明了一个局部变量<code>tmp</code>，导致后者绑定这个块级作用域，所以在<code>let</code>声明变量前，对<code>tmp</code>赋值会报错。</p>
+<p>ES6明确规定，如果区块中存在<code>let</code>和<code>const</code>命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。</p>
+<p>总之，在代码块内，使用<code>let</code>命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="comment">// TDZ开始</span></div><div class="line">  tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></div><div class="line"></div><div class="line">  <span class="keyword">let</span> tmp; <span class="comment">// TDZ结束</span></div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">  tmp = <span class="number">123</span>;</div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，在<code>let</code>命令声明变量<code>tmp</code>之前，都属于变量<code>tmp</code>的“死区”。</p>
+<p>“暂时性死区”也意味着typeof不再是一个百分之百安全的操作。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> x; <span class="comment">// ReferenceError</span></div><div class="line"><span class="keyword">let</span> x;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，变量<code>x</code>使用<code>let</code>命令声明，所以在声明之前，都属于<code>x</code>的“死区”，只要用到该变量就会报错。因此，<code>typeof</code>运行时就会抛出一个<code>ReferenceError</code>。</p>
+<p>作为比较，如果一个变量根本没有被声明，使用<code>typeof</code>反而不会报错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> undeclared_variable <span class="comment">// "undefined"</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>undeclared_variable</code>是一个不存在的变量名，结果返回“undefined”。所以，在没有<code>let</code>之前，<code>typeof</code>运算符是百分之百安全的，永远不会报错。现在这一点不成立了。这样的设计是为了让大家养成良好的编程习惯，变量一定要在声明之后使用，否则就报错。</p>
+<p><strong>ES6 规定暂时性死区和<code>let</code>、<code>const</code>语句不出现变量提升，主要是为了减少运行时错误，防止在变量声明前就使用这个变量，从而导致意料之外的行为。这样的错误在 ES5 是很常见的，现在有了这种规定，避免此类错误就很容易了。</strong></p>
+<p><strong>总之，暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</strong></p>
+<h4 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h4><p>解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于<code>undefined</code>和<code>null</code>无法转为对象，所以对它们进行解构赋值，都会报错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123; <span class="attr">prop</span>: x &#125; = <span class="literal">undefined</span>; <span class="comment">// TypeError</span></div><div class="line"><span class="keyword">let</span> &#123; <span class="attr">prop</span>: y &#125; = <span class="literal">null</span>; <span class="comment">// TypeError</span></div></pre></td></tr></table></figure></p>
+<h5 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h5><p>注意，ES6 内部使用严格相等运算符<code>===</code>，判断一个位置是否有值。所以，如果一个数组成员不严格等于<code>undefined</code>，默认值是不会生效的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [x = <span class="number">1</span>] = [<span class="literal">undefined</span>];</div><div class="line">x <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> [x = <span class="number">1</span>] = [<span class="literal">null</span>];</div><div class="line">x <span class="comment">// null</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，如果一个数组成员是<code>null</code>，默认值就不会生效，因为<code>null</code>不严格等于<code>undefined</code>。</p>
+<p>如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'aaa'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> [x = f()] = [<span class="number">1</span>];</div></pre></td></tr></table></figure></p>
+<p>上面代码中，因为<code>x</code>能取到值，所以函数f根本不会执行。上面的代码其实等价于下面的代码。</p>
+
       
     </div>
 
@@ -566,7 +583,7 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-和-const-命令"><span class="nav-text">let 和 const 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不存在变量提升"><span class="nav-text">不存在变量提升</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-和-const-命令"><span class="nav-text">let 和 const 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不存在变量提升"><span class="nav-text">不存在变量提升</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#暂时性死区"><span class="nav-text">暂时性死区</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量的解构赋值"><span class="nav-text">变量的解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认值"><span class="nav-text">默认值</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
