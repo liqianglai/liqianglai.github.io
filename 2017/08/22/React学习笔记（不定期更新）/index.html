@@ -82,7 +82,7 @@
 
 
 
-<meta name="description" content="更新于：2017年8月25日10:52:38
+<meta name="description" content="更新于：2017年8月30日11:29:21
 
 零零碎碎首字母大写组件首字母要大写，React 会将小写开头的标签名认为是 HTML 原生标签
 扩展属性如果你已经有了个 props 对象，并且想在 JSX 中传递它，你可以使用 ... 作为扩展操作符来传递整个属性对象。下面两个组件是等效的：12345678function App1() &amp;#123;  return &amp;lt;Greeting f">
@@ -90,14 +90,14 @@
 <meta property="og:title" content="React学习笔记（不定期更新）">
 <meta property="og:url" content="http://liqianglai.github.com/2017/08/22/React学习笔记（不定期更新）/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="更新于：2017年8月25日10:52:38
+<meta property="og:description" content="更新于：2017年8月30日11:29:21
 
 零零碎碎首字母大写组件首字母要大写，React 会将小写开头的标签名认为是 HTML 原生标签
 扩展属性如果你已经有了个 props 对象，并且想在 JSX 中传递它，你可以使用 ... 作为扩展操作符来传递整个属性对象。下面两个组件是等效的：12345678function App1() &amp;#123;  return &amp;lt;Greeting f">
-<meta property="og:updated_time" content="2017-08-25T02:58:08.510Z">
+<meta property="og:updated_time" content="2017-08-30T03:29:22.761Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React学习笔记（不定期更新）">
-<meta name="twitter:description" content="更新于：2017年8月25日10:52:38
+<meta name="twitter:description" content="更新于：2017年8月30日11:29:21
 
 零零碎碎首字母大写组件首字母要大写，React 会将小写开头的标签名认为是 HTML 原生标签
 扩展属性如果你已经有了个 props 对象，并且想在 JSX 中传递它，你可以使用 ... 作为扩展操作符来传递整个属性对象。下面两个组件是等效的：12345678function App1() &amp;#123;  return &amp;lt;Greeting f">
@@ -382,7 +382,7 @@
 
       
         <blockquote>
-<p>更新于：2017年8月25日10:52:38</p>
+<p>更新于：2017年8月30日11:29:21</p>
 </blockquote>
 <h4 id="零零碎碎"><a href="#零零碎碎" class="headerlink" title="零零碎碎"></a>零零碎碎</h4><h5 id="首字母大写"><a href="#首字母大写" class="headerlink" title="首字母大写"></a>首字母大写</h5><p>组件首字母要大写，React 会将小写开头的标签名认为是 HTML 原生标签</p>
 <h5 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h5><p>如果你已经有了个 props 对象，并且想在 JSX 中传递它，你可以使用 <code>...</code> 作为扩展操作符来传递整个属性对象。下面两个组件是等效的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">App1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;Greeting firstName="Ben" lastName="Hector" /&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function App2() &#123;</div><div class="line">  const props = &#123;firstName: 'Ben', lastName: 'Hector'&#125;;</div><div class="line">  return &lt;Greeting &#123;...props&#125; /&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -396,8 +396,24 @@
 <h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h4><ul>
 <li>使用 camelCase 模式 <code>onClick</code></li>
 <li>阻止默认事件 <code>ev.preventDefault</code></li>
-<li>事件的 <code>this</code> 问题<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 使用 bind 绑定，优先使用该方式</span></div><div class="line"><span class="keyword">this</span>.method = <span class="keyword">this</span>.method.bind(<span class="keyword">this</span>)</div><div class="line"><span class="comment">// 2. 试验特性</span></div><div class="line">method = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</div><div class="line"><span class="comment">// 3. 性能问题</span></div><div class="line">onClick=&#123;() =&gt; <span class="keyword">this</span>.method()&#125;</div></pre></td></tr></table></figure></li>
+<li>事件的 <code>this</code> 问题<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 使用 bind 绑定，优先使用该方式</span></div><div class="line"><span class="keyword">this</span>.method = <span class="keyword">this</span>.method.bind(<span class="keyword">this</span>)</div><div class="line"><span class="comment">// 2. 试验特性</span></div><div class="line">method = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</div><div class="line"><span class="comment">// 3. 性能问题</span></div><div class="line">onClick=&#123;() =&gt; <span class="keyword">this</span>.method()&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
+<h4 id="Refs-amp-DOM"><a href="#Refs-amp-DOM" class="headerlink" title="Refs &amp; DOM"></a>Refs &amp; DOM</h4><p>如果可以通过声明式实现，则尽量避免使用 refs。</p>
+<p>例如，不要在 <code>Dialog</code> 组件上直接暴露 <code>open()</code> 和 <code>close()</code> 方法，最好传递 <code>isOpen</code> 属性。</p>
+<p>React 支持给任意组件添加特殊属性。ref 属性接受一个回调函数，它在组件被加载或卸载时会立即执行。</p>
+<ul>
+<li><p>当给 HTML 元素添加 <code>ref</code> 属性时，<code>ref</code> 回调接收了底层的 DOM 元素作为参数。例如，下面的代码使用 <code>ref</code> 回调来存储 DOM 节点的引用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span> ref=&#123;(input) =&gt; &#123; <span class="keyword">this</span>.textInput = input; &#125;&#125; /&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>当 ref 属性用于使用 class 声明的自定义组件时，ref 的回调接收的是已经加载的 React 实例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoFocusTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">this</span>.textInput.focus();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">CustomTextInput</span></span></span></div><div class="line">        <span class="attr">ref</span>=<span class="string">&#123;(input)</span> =&gt; &#123; this.textInput = input; &#125;&#125; /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>需要注意的是，这种方法仅对 <code>class</code> 声明的 <code>CustomTextInput</code> 有效</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="comment">// code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>你不能在函数式组件上使用 ref 属性，因为它们没有实例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyFunctionalComponent</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;input /&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Parent extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    // 这里 `ref` 无效！</div><div class="line">    return (</div><div class="line">      &lt;MyFunctionalComponent</div><div class="line">        ref=&#123;(input) =&gt; &#123; this.textInput = input; &#125;&#125; /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果你想使用 <code>re</code>f，就像你想使用生命周期方法或者 <code>state</code> 一样，应该将其转换为 <code>class</code> 组件。</p>
 
       
     </div>
@@ -529,7 +545,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -546,7 +562,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -593,7 +609,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#零零碎碎"><span class="nav-text">零零碎碎</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首字母大写"><span class="nav-text">首字母大写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展属性"><span class="nav-text">扩展属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ant-design-mobile"><span class="nav-text">ant-design-mobile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-React-App"><span class="nav-text">Create React App</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生命周期"><span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-初始化过程"><span class="nav-text">1. 初始化过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-更新过程"><span class="nav-text">2. 更新过程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件处理"><span class="nav-text">事件处理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#零零碎碎"><span class="nav-text">零零碎碎</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首字母大写"><span class="nav-text">首字母大写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展属性"><span class="nav-text">扩展属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ant-design-mobile"><span class="nav-text">ant-design-mobile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-React-App"><span class="nav-text">Create React App</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生命周期"><span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-初始化过程"><span class="nav-text">1. 初始化过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-更新过程"><span class="nav-text">2. 更新过程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件处理"><span class="nav-text">事件处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Refs-amp-DOM"><span class="nav-text">Refs & DOM</span></a></li></ol></div>
             
           </div>
         </section>

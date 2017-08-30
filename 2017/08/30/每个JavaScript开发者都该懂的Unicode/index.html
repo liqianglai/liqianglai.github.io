@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,Unicode," />
 
 
 
@@ -82,15 +82,29 @@
 
 
 
-<meta name="description" content="公旦叫我了">
-<meta property="og:type" content="website">
-<meta property="og:title" content="朝花夕拾">
-<meta property="og:url" content="http://liqianglai.github.com/index.html">
+<meta name="description" content="转载：http://mp.weixin.qq.com/s/lPb5BtW16-3AQTXecEVlzA原文：www.zcfy.cc/article/what-every-javascript-developer-should-know-about-unicode-1303.html
+
+每次遇到需要Unicode知识的编程问题时，我总是找一个hack方案来解决，但解决方案的原理我也不懂。
+直到遇见">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每个JavaScript开发者都该懂的Unicode">
+<meta property="og:url" content="http://liqianglai.github.com/2017/08/30/每个JavaScript开发者都该懂的Unicode/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="公旦叫我了">
+<meta property="og:description" content="转载：http://mp.weixin.qq.com/s/lPb5BtW16-3AQTXecEVlzA原文：www.zcfy.cc/article/what-every-javascript-developer-should-know-about-unicode-1303.html
+
+每次遇到需要Unicode知识的编程问题时，我总是找一个hack方案来解决，但解决方案的原理我也不懂。
+直到遇见">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170830/1.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170830/1.jpg">
+<meta property="og:image" content="http://liqianglai.github.com/images/20170830/3.jpg">
+<meta property="og:updated_time" content="2017-08-30T06:18:58.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="朝花夕拾">
-<meta name="twitter:description" content="公旦叫我了">
+<meta name="twitter:title" content="每个JavaScript开发者都该懂的Unicode">
+<meta name="twitter:description" content="转载：http://mp.weixin.qq.com/s/lPb5BtW16-3AQTXecEVlzA原文：www.zcfy.cc/article/what-every-javascript-developer-should-know-about-unicode-1303.html
+
+每次遇到需要Unicode知识的编程问题时，我总是找一个hack方案来解决，但解决方案的原理我也不懂。
+直到遇见">
+<meta name="twitter:image" content="http://liqianglai.github.com/images/20170830/1.jpg">
 
 
 
@@ -111,10 +125,10 @@
 
 
 
-  <link rel="canonical" href="http://liqianglai.github.com/"/>
+  <link rel="canonical" href="http://liqianglai.github.com/2017/08/30/每个JavaScript开发者都该懂的Unicode/"/>
 
 
-  <title> 朝花夕拾 </title>
+  <title> 每个JavaScript开发者都该懂的Unicode | 朝花夕拾 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -145,9 +159,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -264,9 +276,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -286,10 +298,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/08/30/每个JavaScript开发者都该懂的Unicode/" itemprop="url">
-                  每个JavaScript开发者都该懂的Unicode
-                </a>
+                每个JavaScript开发者都该懂的Unicode
               
             
           </h1>
@@ -376,9 +385,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>转载：<a href="http://mp.weixin.qq.com/s/lPb5BtW16-3AQTXecEVlzA" target="_blank" rel="external">http://mp.weixin.qq.com/s/lPb5BtW16-3AQTXecEVlzA</a><br>原文：<a href="www.zcfy.cc/article/what-every-javascript-developer-should-know-about-unicode-1303.html">www.zcfy.cc/article/what-every-javascript-developer-should-know-about-unicode-1303.html</a></p>
 </blockquote>
 <p>每次遇到需要Unicode知识的编程问题时，我总是找一个hack方案来解决，但解决方案的原理我也不懂。</p>
@@ -648,1397 +655,77 @@
 <p>如果你需要更好的办法来处理Unicode字符，你可以使用punycode库或者生成特殊的正则表达式。</p>
 <p>但愿此文能帮助你掌握Unicode！</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward.png" alt="来利强 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
     </div>
+  </div>
 
-    <div>
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/25/ECMAScript6学习笔记（不定期更新）/" itemprop="url">
-                  ECMAScript6学习笔记（不定期更新）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-25T10:41:21+08:00" content="2017-08-25">
-              2017-08-25
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/25/ECMAScript6学习笔记（不定期更新）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/25/ECMAScript6学习笔记（不定期更新）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/08/25/ECMAScript6学习笔记（不定期更新）/" class="leancloud_visitors" data-flag-title="ECMAScript6学习笔记（不定期更新）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/Unicode/" rel="tag">#Unicode</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote>
-<p>更新于：2017年8月29日18:00:30<br>主要参考：<a href="http://es6.ruanyifeng.com/">ECMAScript 6 入门</a></p>
-</blockquote>
-<h4 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a>let 和 const 命令</h4><h5 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h5><p><code>var</code>命令会发生”变量提升“现象，即变量可以在声明之前使用，值为<code>undefined</code>。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。</p>
-<p>为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// var 的情况</span></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 输出undefined</span></div><div class="line"><span class="keyword">var</span> foo = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="comment">// let 的情况</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// 报错ReferenceError</span></div><div class="line"><span class="keyword">let</span> bar = <span class="number">2</span>;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，变量<code>foo</code>用<code>var</code>命令声明，会发生变量提升，即脚本开始运行时，变量<code>foo</code>已经存在了，但是没有值，所以会输出<code>undefined</code>。变量<code>bar</code>用<code>let</code>命令声明，不会发生变量提升。这表示在声明它之前，变量<code>bar</code>是不存在的，这时如果用到它，就会抛出一个错误。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/25/ECMAScript6学习笔记（不定期更新）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/25/ECMAScript6学习笔记（不定期更新）/" rel="next" title="ECMAScript6学习笔记（不定期更新）">
+                <i class="fa fa-chevron-left"></i> ECMAScript6学习笔记（不定期更新）
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/24/Console的花式玩法——我不信你都用过/" itemprop="url">
-                  Console的花式玩法——我不信你都用过
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-24T18:04:45+08:00" content="2017-08-24">
-              2017-08-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/朝花夕拾/" itemprop="url" rel="index">
-                    <span itemprop="name">朝花夕拾</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/朝花夕拾/转载/" itemprop="url" rel="index">
-                    <span itemprop="name">转载</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/24/Console的花式玩法——我不信你都用过/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/24/Console的花式玩法——我不信你都用过/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/08/24/Console的花式玩法——我不信你都用过/" class="leancloud_visitors" data-flag-title="Console的花式玩法——我不信你都用过">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>转载：<a href="http://www.zcfy.cc/article/how-to-get-the-most-out-of-the-javascript-console-freecodecamp-3249.html">http://www.zcfy.cc/article/how-to-get-the-most-out-of-the-javascript-console-freecodecamp-3249.html</a></p>
-</blockquote>
-<p>JavaScript 最基础的 debug 工具之一就是<code>console.log()</code>。<code>console</code>也自带其他一些其他有用的方法，可以丰富开发者的 debug 工具包。</p>
-<p>你可以用console来完成下面这些任务：</p>
-<ul>
-<li>输出一个定时器帮助进行简单基准测试</li>
-<li>输出一个表格，用易于阅读的格式展示一个数组或对象</li>
-<li>应用 CSS 颜色和其他样式输出内容</li>
-</ul>
-<h4 id="Console-对象"><a href="#Console-对象" class="headerlink" title="Console 对象"></a>Console 对象</h4><p><code>console</code>对象赋予了你访问浏览器控制台的权限。它允许输出字符串，数组和对象，这对调试代码很有帮助。<code>console</code>对象是<code>window</code>对象的一部分，被浏览器对象模型(BOM)所支持。</p>
-<p>我们可以通过下面两种方式的任一种来访问<code>console</code></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/24/Console的花式玩法——我不信你都用过/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/22/React学习笔记（不定期更新）/" itemprop="url">
-                  React学习笔记（不定期更新）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-22T17:03:02+08:00" content="2017-08-22">
-              2017-08-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/React/" itemprop="url" rel="index">
-                    <span itemprop="name">React</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/22/React学习笔记（不定期更新）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/22/React学习笔记（不定期更新）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/08/22/React学习笔记（不定期更新）/" class="leancloud_visitors" data-flag-title="React学习笔记（不定期更新）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <blockquote>
-<p>更新于：2017年8月30日11:29:21</p>
-</blockquote>
-<h4 id="零零碎碎"><a href="#零零碎碎" class="headerlink" title="零零碎碎"></a>零零碎碎</h4><h5 id="首字母大写"><a href="#首字母大写" class="headerlink" title="首字母大写"></a>首字母大写</h5><p>组件首字母要大写，React 会将小写开头的标签名认为是 HTML 原生标签</p>
-<h5 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h5><p>如果你已经有了个 props 对象，并且想在 JSX 中传递它，你可以使用 <code>...</code> 作为扩展操作符来传递整个属性对象。下面两个组件是等效的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">App1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;Greeting firstName="Ben" lastName="Hector" /&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function App2() &#123;</div><div class="line">  const props = &#123;firstName: 'Ben', lastName: 'Hector'&#125;;</div><div class="line">  return &lt;Greeting &#123;...props&#125; /&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当你构建通用容器时，扩展属性会非常有用。然而，这样做也可能让很多不相关的属性，传递到不需要它们的组件中使代码变得混乱。React建议你谨慎使用此语法。</p>
-<h4 id="ant-design-mobile"><a href="#ant-design-mobile" class="headerlink" title="ant-design-mobile"></a>ant-design-mobile</h4><ul>
-<li><a href="https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596" target="_blank" rel="external">ListView一些问题</a></li>
-</ul>
-<h4 id="Create-React-App"><a href="#Create-React-App" class="headerlink" title="Create React App"></a>Create React App</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1. 自定义配置，需要执行，此操作为单向不可逆</span></div><div class="line">yarn eject</div><div class="line"></div><div class="line"><span class="comment"># 2. 路由</span></div><div class="line">React-Router</div><div class="line"></div><div class="line"><span class="comment"># 3. 图表的支持</span></div><div class="line">echarts-for-react</div><div class="line"></div><div class="line"><span class="comment"># 4. sass支持</span></div><div class="line">sass-loader</div><div class="line">node-sass</div><div class="line"></div><div class="line"><span class="comment"># 5. 路由依赖加载</span></div><div class="line">lazy-load-react</div></pre></td></tr></table></figure>
-<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><h5 id="1-初始化过程"><a href="#1-初始化过程" class="headerlink" title="1. 初始化过程"></a>1. 初始化过程</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. constructor</div><div class="line">2. componentWillMount</div><div class="line">3. render</div><div class="line">4. componentDidMount</div></pre></td></tr></table></figure>
-<h5 id="2-更新过程"><a href="#2-更新过程" class="headerlink" title="2. 更新过程"></a>2. 更新过程</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate <span class="comment"># true 执行以下过程， false 中断更新</span></div><div class="line">1. componentWillUpdate</div><div class="line">2. render</div><div class="line">3. componentDidUpdate</div></pre></td></tr></table></figure>
-<h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h4><ul>
-<li>使用 camelCase 模式 <code>onClick</code></li>
-<li>阻止默认事件 <code>ev.preventDefault</code></li>
-<li>事件的 <code>this</code> 问题<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 使用 bind 绑定，优先使用该方式</span></div><div class="line"><span class="keyword">this</span>.method = <span class="keyword">this</span>.method.bind(<span class="keyword">this</span>)</div><div class="line"><span class="comment">// 2. 试验特性</span></div><div class="line">method = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</div><div class="line"><span class="comment">// 3. 性能问题</span></div><div class="line">onClick=&#123;() =&gt; <span class="keyword">this</span>.method()&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="Refs-amp-DOM"><a href="#Refs-amp-DOM" class="headerlink" title="Refs &amp; DOM"></a>Refs &amp; DOM</h4><p>如果可以通过声明式实现，则尽量避免使用 refs。</p>
-<p>例如，不要在 <code>Dialog</code> 组件上直接暴露 <code>open()</code> 和 <code>close()</code> 方法，最好传递 <code>isOpen</code> 属性。</p>
-<p>React 支持给任意组件添加特殊属性。ref 属性接受一个回调函数，它在组件被加载或卸载时会立即执行。</p>
-<ul>
-<li><p>当给 HTML 元素添加 <code>ref</code> 属性时，<code>ref</code> 回调接收了底层的 DOM 元素作为参数。例如，下面的代码使用 <code>ref</code> 回调来存储 DOM 节点的引用。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span> ref=&#123;(input) =&gt; &#123; <span class="keyword">this</span>.textInput = input; &#125;&#125; /&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>当 ref 属性用于使用 class 声明的自定义组件时，ref 的回调接收的是已经加载的 React 实例。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoFocusTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">this</span>.textInput.focus();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">CustomTextInput</span></span></span></div><div class="line">        <span class="attr">ref</span>=<span class="string">&#123;(input)</span> =&gt; &#123; this.textInput = input; &#125;&#125; /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>需要注意的是，这种方法仅对 <code>class</code> 声明的 <code>CustomTextInput</code> 有效</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="comment">// code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>你不能在函数式组件上使用 ref 属性，因为它们没有实例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyFunctionalComponent</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;input /&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Parent extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    // 这里 `ref` 无效！</div><div class="line">    return (</div><div class="line">      &lt;MyFunctionalComponent</div><div class="line">        ref=&#123;(input) =&gt; &#123; this.textInput = input; &#125;&#125; /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>如果你想使用 <code>re</code>f，就像你想使用生命周期方法或者 <code>state</code> 一样，应该将其转换为 <code>class</code> 组件。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/22/缓存——从请求到响应过程的一切（下）/" itemprop="url">
-                  缓存——从请求到响应过程的一切（下）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-22T16:35:32+08:00" content="2017-08-22">
-              2017-08-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/朝花夕拾/" itemprop="url" rel="index">
-                    <span itemprop="name">朝花夕拾</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/朝花夕拾/转载/" itemprop="url" rel="index">
-                    <span itemprop="name">转载</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/22/缓存——从请求到响应过程的一切（下）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/22/缓存——从请求到响应过程的一切（下）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/08/22/缓存——从请求到响应过程的一切（下）/" class="leancloud_visitors" data-flag-title="缓存——从请求到响应过程的一切（下）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>转载：<a href="https://zhuanlan.zhihu.com/p/25596667">https://zhuanlan.zhihu.com/p/25596667</a><br>原文：<a href="https://blog.fortrabbit.com/mastering-http-caching">https://blog.fortrabbit.com/mastering-http-caching</a></p>
-</blockquote>
-<h4 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h4><p>你已经知道了缓存头是如何起作用的，现在我们来看下在缓存里面 cookie 起了什么作用。首先， Cookie 的设定也在 HTTP 响应头中，名字是 Set-Cookie。设置一个 cookie 的目的是标识这个用户，就是说你需要为每个用户设置一个 cookie。</p>
-<p>想象一下缓存的场景，你是否会缓存一个包含了Set-Cookie的 HTTP 响应，在缓存时间内，每个人都会得到相同的 cookie 和同样的用户 session？你肯定不想这样。</p>
-<p>另外，用户 session 状态的改变可能会影响到响应内容的变化。一个简单的场景：电商购物车。你给用户要么提供一个空购物车，要么是用户自己选了很多物品的购物车。同样的道理，你不希望这个也被缓存，毕竟每个用户都应该有自己的购物车。</p>
-<p>一个解决方法是在运行时通过 JavaScript 设置 Cookie，比如 Google Analytics。GA 通过 JS 设置 cookie，但这个 cookie 既不影响渲染，也不设置 Set-Cookie 头。GA 会在目标网站上添加类似于 “you are tracked via Google Analytics” 的图标，但是只要这些改变都是在运行时添加进去的，就都没有问题。</p>
-<h4 id="正确处理-cookie-和缓存"><a href="#正确处理-cookie-和缓存" class="headerlink" title="正确处理 cookie 和缓存"></a>正确处理 cookie 和缓存</h4>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/22/缓存——从请求到响应过程的一切（下）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/22/缓存——从请求到响应过程的一切（上）/" itemprop="url">
-                  缓存——从请求到响应过程的一切（上）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-22T16:12:05+08:00" content="2017-08-22">
-              2017-08-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/朝花夕拾/" itemprop="url" rel="index">
-                    <span itemprop="name">朝花夕拾</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/朝花夕拾/转载/" itemprop="url" rel="index">
-                    <span itemprop="name">转载</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/22/缓存——从请求到响应过程的一切（上）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/22/缓存——从请求到响应过程的一切（上）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/08/22/缓存——从请求到响应过程的一切（上）/" class="leancloud_visitors" data-flag-title="缓存——从请求到响应过程的一切（上）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>转载：<a href="https://zhuanlan.zhihu.com/p/25512679">https://zhuanlan.zhihu.com/p/25512679</a><br>原文：<a href="https://blog.fortrabbit.com/mastering-http-caching">https://blog.fortrabbit.com/mastering-http-caching</a></p>
-</blockquote>
-<p>CDN类的网站曾经一度雄踞 Alexa 域名排行的前 100。以前一些小网站不需要使用 CDN 或者根本负担不起其价格，不过这一现象近几年发生了很大的变化，CDN 市场上出现了很多按次付费，非公司性的提供商，这使得 CDN 变成人人都能负担的起的一种服务了。本文讲述的就是如何使用这种简单易用的缓存服务。</p>
-<p>使用内容分发网络（ CDN ）你需要先正确地认识 HTTP 响应头：和 HTTP 响应头中的哪些标签相关？它们是怎么起作用的？如何使用它们？文章中我会回答这些问题。</p>
-<p>本文讲的并不会像教科书那么精确，实际上在某些情况下，为了叙述的清晰、简洁，我会按自己的理解简化某些问题，文章中会通过一些实际的例子来介绍缓存理论。在这篇文章的基础上，还会写一些文章来介绍对于某些指定的 CMS 或框架如何使用 CDN 来作为缓存层。</p>
-<h4 id="为什么使用-CDN？"><a href="#为什么使用-CDN？" class="headerlink" title="为什么使用 CDN？"></a>为什么使用 CDN？</h4>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/22/缓存——从请求到响应过程的一切（上）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/14/canvas宽高问题——问/" itemprop="url">
-                  canvas宽高问题——问
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-14T11:10:29+08:00" content="2016-12-14">
-              2016-12-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/Canvas/" itemprop="url" rel="index">
-                    <span itemprop="name">Canvas</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/14/canvas宽高问题——问/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/14/canvas宽高问题——问/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/14/canvas宽高问题——问/" class="leancloud_visitors" data-flag-title="canvas宽高问题——问">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>js设置canvas宽高为浏览器可用宽高，滚动条仍然出现，如下代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>CANVAS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">    * &#123;</div><div class="line">      padding: 0;</div><div class="line">      margin: 0;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    html,</div><div class="line">    body &#123;</div><div class="line">      height: 100%;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #canvas &#123;</div><div class="line">      background-color: #cba;</div><div class="line">    &#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line">    canvas.width = <span class="built_in">document</span>.body.clientWidth;</div><div class="line">    <span class="comment">// canvas.width = window.innerWeight;</span></div><div class="line">    canvas.height = <span class="built_in">document</span>.body.clientHeight;</div><div class="line">    <span class="comment">// canvas.height = window.innerHeight;</span></div><div class="line">    context = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">    context.beginPath();</div><div class="line">    context.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">1.5</span> * <span class="built_in">Math</span>.PI, <span class="literal">true</span>);</div><div class="line">    context.closePath();</div><div class="line">    context.strokeStyle = <span class="string">'#f0f'</span>;</div><div class="line">    context.stroke();</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/06/json-server快速“伪造”后台接口/" itemprop="url">
-                  json-server快速“伪造”后台接口
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-06T14:06:01+08:00" content="2016-12-06">
-              2016-12-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/后端/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/06/json-server快速“伪造”后台接口/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/json-server快速“伪造”后台接口/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/06/json-server快速“伪造”后台接口/" class="leancloud_visitors" data-flag-title="json-server快速“伪造”后台接口">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>需要安装 <code>node</code> <a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></p>
-<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><ol>
-<li><p>新建项目 <code>mkdir rest-api-demo &amp;&amp; cd rest-api-demo</code></p>
-</li>
-<li><p>初始化项目 <code>npm init</code></p>
-</li>
-<li><p>安装 <code>npm install --save-dev json-server</code></p>
-</li>
-<li><p>在项目根目录下，新建一个 JSON 文件<code>db.json</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;posts&quot;: [</div><div class="line">    &#123; &quot;id&quot;: 1, &quot;title&quot;: &quot;json-server&quot;, &quot;author&quot;: &quot;typicode&quot; &#125;</div><div class="line">  ],</div><div class="line">  &quot;comments&quot;: [</div><div class="line">    &#123; &quot;id&quot;: 1, &quot;body&quot;: &quot;some comment&quot;, &quot;postId&quot;: 1 &#125;</div><div class="line">  ],</div><div class="line">  &quot;profile&quot;: &#123; &quot;name&quot;: &quot;typicode&quot; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>打开 <code>package.json</code>，在 <code>scripts</code> 字段添加一行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;json-server db.json&quot;, // 新加行</div><div class="line">  &quot;test&quot;: &quot;...&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动服务 <code>npm run server</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">\&#123;^_^&#125;/ hi!</div><div class="line"></div><div class="line">Loading db.json</div><div class="line">Done</div><div class="line"></div><div class="line">Resources</div><div class="line">http://localhost:3000/posts</div><div class="line">http://localhost:3000/comments</div><div class="line">http://localhost:3000/profile</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>三个接口已经生成，支持<code>post(新增) delete(删除) put(修改) get(查询)</code>;<br><em>推荐使用 <code>postman</code> 进行测试</em></p>
-<h4 id="自定义路由-custom-routes"><a href="#自定义路由-custom-routes" class="headerlink" title="自定义路由 custom routes"></a>自定义路由 <code>custom routes</code></h4><ol>
-<li><p>创建一个JSON文件 <code>routes.json</code><br><em>必须以<code>/</code>开始</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;/api/&quot;: &quot;/&quot;,</div><div class="line">  &quot;/blog/:resource/:id/show&quot;: &quot;/:resource/:id&quot;,</div><div class="line">  &quot;/blog/:category&quot;: &quot;/posts/:id?category=:category&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改启动参数 <code>package.json</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;json-server db.json --routes routes.json&quot;, // 修改行</div><div class="line">  &quot;test&quot;: &quot;...&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动服务 <code>npm run server</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">\&#123;^_^&#125;/ hi!</div><div class="line"></div><div class="line">Loading db.json</div><div class="line">Loading routes.json</div><div class="line">Done</div><div class="line"></div><div class="line">Resources</div><div class="line">http://localhost:3000/posts</div><div class="line">http://localhost:3000/comments</div><div class="line">http://localhost:3000/profile</div><div class="line"></div><div class="line">Other routes</div><div class="line">/api/ -&gt; /</div><div class="line">/blog/:resource/:id/show -&gt; /:resource/:id</div><div class="line">/blog/:category -&gt; /posts/:id?category=:category</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="参考代码：JavaScript-study-rest-api-demo"><a href="#参考代码：JavaScript-study-rest-api-demo" class="headerlink" title="参考代码：JavaScript-study/rest-api-demo"></a>参考代码：<a href="https://github.com/liqianglai/JavaScript-study.git" target="_blank" rel="external">JavaScript-study/rest-api-demo</a></h4><h4 id="详情查看：https-www-npmjs-com-package-json-server"><a href="#详情查看：https-www-npmjs-com-package-json-server" class="headerlink" title="详情查看：https://www.npmjs.com/package/json-server"></a>详情查看：<a href="https://www.npmjs.com/package/json-server" target="_blank" rel="external">https://www.npmjs.com/package/json-server</a></h4>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/JavaScript函数调用返回问题/" itemprop="url">
-                  JavaScript函数调用返回问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T10:06:26+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/JavaScript函数调用返回问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/JavaScript函数调用返回问题/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/JavaScript函数调用返回问题/" class="leancloud_visitors" data-flag-title="JavaScript函数调用返回问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>三种方式，返回同样的结果</p>
-</blockquote>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> f1 = (): <span class="function"><span class="params">Promise</span>=&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span> &#123;</div><div class="line">    resolve(<span class="string">"f1"</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> f2 = (str): <span class="function"><span class="params">Promise</span>=&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span> &#123;</div><div class="line">    resolve(<span class="string">"f2"</span> + str);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"方式一"</span>);</div><div class="line">f1()</div><div class="line">  .then(<span class="function"><span class="params">result</span>=&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> f2(result)</div><div class="line">  &#125;)</div><div class="line">  .then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(result)</div><div class="line">  &#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"方式二"</span>);</div><div class="line">f1()</div><div class="line">  .then(<span class="function"><span class="params">result</span>=&gt;</span> f2(result))</div><div class="line">  .then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result));</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"方式三"</span>);</div><div class="line">f1()</div><div class="line">  .then(f2)</div><div class="line">  .then(<span class="built_in">console</span>.log);</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/14/JavaScript函数调用返回问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/01/幻数/" itemprop="url">
-                  幻数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T09:18:10+08:00" content="2016-11-01">
-              2016-11-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/朝花夕拾/" itemprop="url" rel="index">
-                    <span itemprop="name">朝花夕拾</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/朝花夕拾/转载/" itemprop="url" rel="index">
-                    <span itemprop="name">转载</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/01/幻数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/幻数/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/01/幻数/" class="leancloud_visitors" data-flag-title="幻数">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>转载自：<a href="http://blog.csdn.net/xieyihua1994/article/details/51578325" target="_blank" rel="external">http://blog.csdn.net/xieyihua1994/article/details/51578325</a></p>
-<blockquote>
-<p>幻数：就是具体的数，反映不出数字所代表的意义。<br>危害：幻数带来的主要问题是它们没有（抽象）语义。当我们阅读和维护带有幻数的代码时，不得不去一个个地搞清楚每个光秃秃的量到底代表的是什么意思。<br>没错，这样也能勉强度日，但带来的是不必要的精力浪费以及准确性的丧失。</p>
-</blockquote>
-<p>仅仅只是文字的表达，我相信恐怕有些朋友难以理解，那我就举个例子说明一下。<br>比如：有下列一段代码。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt;<span class="number">16</span> ; i ++) &#123; &#125;</div></pre></td></tr></table></figure>
-<p>那么我就要问同学们有谁知道 i 为什么必须小于16吗？16代表的是什么？（<em>大家肯定在想：我的天！！我怎么可能知道，这代码又不是我写的，我怎么会知道他在想什么。</em>）</p>
-<p>对！！！<br>就是因为代码不是我们自己写的，所以我们不知道这个16是什么意思，这也暴露了一个问题，这段代码的可读性比较差，因为读者根本不知道16是什么意思，我相信即使是代码的编写者，你问他，他也需要联系上下文才能回答你这个问题。<br>所以，这就是“幻术”。</p>
-<p>如何避免这种情况呢？有很多种方式，比如枚举，宏替换都是解决幻数的有效方式。<br>上面的例子可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> len = <span class="number">16</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt;len ; i ++) &#123; &#125;</div></pre></td></tr></table></figure></p>
-<p>这样写就可以很好地理解这段代码的意思了。说到这里，我想大家应该都知道解决幻数的好处是什么了。因此我们写代码的时候，尽量避免幻数的出现。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -2046,6 +733,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/30/每个JavaScript开发者都该懂的Unicode/"
+           data-title="每个JavaScript开发者都该懂的Unicode" data-url="http://liqianglai.github.com/2017/08/30/每个JavaScript开发者都该懂的Unicode/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -2065,8 +760,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -2134,6 +838,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Unicode背后的思想"><span class="nav-text">1. Unicode背后的思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Unicode基本概念"><span class="nav-text">2. Unicode基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-字符与代码点"><span class="nav-text">2.1 字符与代码点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-Unicode平面"><span class="nav-text">2.2 Unicode平面</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本多文种平面"><span class="nav-text">基本多文种平面</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#星光平面"><span class="nav-text">星光平面</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-码元"><span class="nav-text">2.3 码元</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-代理对"><span class="nav-text">2.4 代理对</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-组合用字符"><span class="nav-text">2.5 组合用字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-JavaScript中的Unicode"><span class="nav-text">3. JavaScript中的Unicode</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-转义序列"><span class="nav-text">3.1 转义序列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-字符串比较"><span class="nav-text">3.2 字符串比较</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-字符串长度"><span class="nav-text">3.3 字符串长度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-字符定位"><span class="nav-text">3.4 字符定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-正则匹配"><span class="nav-text">3.5 正则匹配</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-结语"><span class="nav-text">4. 结语</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -2237,6 +952,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 

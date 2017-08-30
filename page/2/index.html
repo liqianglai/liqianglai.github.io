@@ -287,6 +287,153 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/27/一道常被人轻视的JS面试题/" itemprop="url">
+                  一道常被人轻视的JS面试题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-27T14:31:37+08:00" content="2016-10-27">
+              2016-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/转载/" itemprop="url" rel="index">
+                    <span itemprop="name">转载</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/27/一道常被人轻视的JS面试题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/一道常被人轻视的JS面试题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/27/一道常被人轻视的JS面试题/" class="leancloud_visitors" data-flag-title="一道常被人轻视的JS面试题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>转载自：<a href="http://www.cnblogs.com/xxcanghai/p/5189353.html">http://www.cnblogs.com/xxcanghai/p/5189353.html</a></p>
+</blockquote>
+<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">1</span>); &#125;;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line">Foo.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">2</span>); &#125;;</div><div class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">3</span>); &#125;;</div><div class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="number">4</span>); &#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert(<span class="number">5</span>); &#125;</div><div class="line"></div><div class="line"><span class="comment">//请写出以下输出结果：</span></div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line"><span class="keyword">new</span> Foo.getName();</div><div class="line"><span class="keyword">new</span> Foo().getName();</div><div class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName();</div></pre></td></tr></table></figure>
+<h4 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Foo.getName(); <span class="comment">// 2</span></div><div class="line">getName(); <span class="comment">// 4</span></div><div class="line">Foo().getName(); <span class="comment">// 1</span></div><div class="line">getName(); <span class="comment">// 1</span></div><div class="line"><span class="keyword">new</span> Foo.getName(); <span class="comment">// 2</span></div><div class="line"><span class="keyword">new</span> Foo().getName(); <span class="comment">// 3</span></div><div class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName(); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/27/一道常被人轻视的JS面试题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/21/indexedDB入门/" itemprop="url">
                   IndexedDB入门
                 </a>
@@ -1135,7 +1282,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1152,7 +1299,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
