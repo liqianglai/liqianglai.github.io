@@ -431,7 +431,7 @@
 <li>…</li>
 <li>平面16包含从U+<strong>10</strong>0000到U+<strong>10</strong>FFFF的代码点</li>
 </ul>
-<p><img src="/images/20170830/1.jpg" alt=""></p>
+<p><img src="/images/20170830/2.jpg" alt=""></p>
 <h6 id="基本多文种平面"><a href="#基本多文种平面" class="headerlink" title="基本多文种平面"></a>基本多文种平面</h6><p>平面0比较特殊，被称为基本多文种平面或简称BMP。它包含了大多数现代语言的字符 (基本拉丁字母, 西里尔字母, 希腊字母等)和大量的符号。</p>
 <p>如上文所述，基本多文种平面的代码点取值范围是从<code>U+0000</code>到<code>U+FFFF</code>，最多可以有4位16进制数字。</p>
 <p>大多数时候开发者处理的都是BMP中的字符。它包含了大多数情况下的必需字符。</p>
@@ -529,7 +529,7 @@
 <p>注意正则表达式<code>/\u{1F639}/u</code>有一个特殊flag<code>u</code>,它支持额外的Unicode特性（详情见3.5正则匹配）。</p>
 <p>我喜欢代码点转义不需要使用代理对来表示星光符号这一点。让我们来转义代码点<code>U+1F607 SMILING FACE WITH HALO</code>吧：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> niceEmoticon = <span class="string">'\u&#123;1F607&#125;'</span>;  </div><div class="line"><span class="built_in">console</span>.log(niceEmoticon);   <span class="comment">// =&gt; ''  </span></div><div class="line"><span class="keyword">var</span> spNiceEmoticon = <span class="string">'\uD83D\uDE07'</span>  </div><div class="line"><span class="built_in">console</span>.log(spNiceEmoticon); <span class="comment">// =&gt; ''  </span></div><div class="line"><span class="built_in">console</span>.log(niceEmoticon === spNiceEmoticon); <span class="comment">// =&gt; true</span></div></pre></td></tr></table></figure></p>
 <p>被赋给变量niceEmoticon的字符串字面量包含一个代码点转义序列<code>\u{1F607}</code>，它表示一个星光代码点<code>U+1F607</code>。</p>
-<p>然而在这种表象之下代码点转义序列依旧生成了一个代理对（2个码元）。我们可以看到变量spNiceEmoticon被赋值为使用代理对创建的Unicode转义序列<code>\uD83D\uDE07</code>，而它与变量niceEmoticon是相等的。</p>
+<p>然而在这种表象之下代码点转义序列依旧生成了一个代理对（2个码元）。我们可以看到变量spNiceEmoticon被赋值为使用代理对创建的Unicode转义序列<code>\uD83D\uDE07</code>，而它与变量niceEmoticon是相等的。<br><img src="/images/20170830/3.jpg" alt=""></p>
 <p>如果正则表达式是用构造函数RegExp创建的，那么在字符串字面量中必须将每一个 <code>\</code>替换为<code>\\</code>来表示Unicode转义序列。</p>
 <p>以下正则表达式对象是相等的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg1 = <span class="regexp">/\x4A \u0020 \u&#123;1F639&#125;/</span>;  </div><div class="line"><span class="keyword">var</span> reg2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\x4A \\u0020 \\u&#123;1F639&#125;'</span>);  </div><div class="line"><span class="built_in">console</span>.log(reg1.source === reg2.source); <span class="comment">// =&gt; true</span></div></pre></td></tr></table></figure></p>
 <h5 id="3-2-字符串比较"><a href="#3-2-字符串比较" class="headerlink" title="3.2 字符串比较"></a>3.2 字符串比较</h5><p>JavaScript中的字符串是码元的序列。因此字符串的比较可以看作是码元的计算与匹配。</p>
