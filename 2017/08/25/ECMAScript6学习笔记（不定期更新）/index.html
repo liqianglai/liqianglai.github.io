@@ -82,7 +82,7 @@
 
 
 
-<meta name="description" content="更新于：2017年8月29日18:00:30主要参考：ECMAScript 6 入门
+<meta name="description" content="更新于：2017年8月31日16:24:13主要参考：ECMAScript 6 入门
 
 let 和 const 命令不存在变量提升var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。
 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。1234567">
@@ -90,14 +90,14 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
 <meta property="og:title" content="ECMAScript6学习笔记（不定期更新）">
 <meta property="og:url" content="http://liqianglai.github.com/2017/08/25/ECMAScript6学习笔记（不定期更新）/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="更新于：2017年8月29日18:00:30主要参考：ECMAScript 6 入门
+<meta property="og:description" content="更新于：2017年8月31日16:24:13主要参考：ECMAScript 6 入门
 
 let 和 const 命令不存在变量提升var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。
 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。1234567">
-<meta property="og:updated_time" content="2017-08-30T03:56:06.184Z">
+<meta property="og:updated_time" content="2017-08-31T09:17:04.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript6学习笔记（不定期更新）">
-<meta name="twitter:description" content="更新于：2017年8月29日18:00:30主要参考：ECMAScript 6 入门
+<meta name="twitter:description" content="更新于：2017年8月31日16:24:13主要参考：ECMAScript 6 入门
 
 let 和 const 命令不存在变量提升var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。
 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。1234567">
@@ -370,7 +370,7 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
 
       
         <blockquote>
-<p>更新于：2017年8月29日18:00:30<br>主要参考：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></p>
+<p>更新于：2017年8月31日16:24:13<br>主要参考：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></p>
 </blockquote>
 <h4 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a>let 和 const 命令</h4><h5 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h5><p><code>var</code>命令会发生”变量提升“现象，即变量可以在声明之前使用，值为<code>undefined</code>。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。</p>
 <p>为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// var 的情况</span></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 输出undefined</span></div><div class="line"><span class="keyword">var</span> foo = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="comment">// let 的情况</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// 报错ReferenceError</span></div><div class="line"><span class="keyword">let</span> bar = <span class="number">2</span>;</div></pre></td></tr></table></figure></p>
@@ -392,7 +392,28 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
 <p>上面代码中，如果一个数组成员是<code>null</code>，默认值就不会生效，因为<code>null</code>不严格等于<code>undefined</code>。</p>
 <p>如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'aaa'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> [x = f()] = [<span class="number">1</span>];</div></pre></td></tr></table></figure></p>
 <p>上面代码中，因为<code>x</code>能取到值，所以函数f根本不会执行。上面的代码其实等价于下面的代码。</p>
-<h4 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h4>
+<h4 id="函数的扩展"><a href="#函数的扩展" class="headerlink" title="函数的扩展"></a>函数的扩展</h4><h5 id="与解构赋值默认值结合使用"><a href="#与解构赋值默认值结合使用" class="headerlink" title="与解构赋值默认值结合使用"></a>与解构赋值默认值结合使用</h5><p>再请问下面两种写法有什么差别？<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 写法一</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">m1</span>(<span class="params">&#123;x = <span class="number">0</span>, y = <span class="number">0</span>&#125; = &#123;&#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> [x, y];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 写法二</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">m2</span>(<span class="params">&#123;x, y&#125; = &#123; x: <span class="number">0</span>, y: <span class="number">0</span> &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> [x, y];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面两种写法都对函数的参数设定了默认值，区别是写法一函数参数的默认值是空对象，但是设置了对象解构赋值的默认值；写法二函数参数的默认值是一个有具体属性的对象，但是没有设置对象解构赋值的默认值。</p>
+<h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><p>一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域（context）。等到初始化结束，这个作用域就会消失。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y = x</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(y);</div><div class="line">&#125;</div><div class="line"></div><div class="line">f(<span class="number">2</span>) <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>三个作用域</p>
+<ul>
+<li>全局作用域 <code>x=1</code></li>
+<li>单独作用域 <code>x</code> <code>y=x</code> (此时的<code>x</code>指向第一个参数<code>x</code>，而不是全局变量<code>x</code>)</li>
+<li>函数作用域 <code>x=2</code> <code>y=x=2</code> (<code>y</code>取默认值)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">y = x</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> x = <span class="number">2</span>;</div><div class="line">  <span class="built_in">console</span>.log(y);</div><div class="line">&#125;</div><div class="line"></div><div class="line">f() <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<p>三个作用域</p>
+<ul>
+<li>全局作用域 <code>x=1</code></li>
+<li>单独作用域 <code>y=x</code> (此时的<code>x</code>是全局变量<code>x</code>)</li>
+<li>函数作用域 <code>x=2</code> <code>y=1</code> (<code>y</code>取默认值)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x = x</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">foo() <span class="comment">// ReferenceError: x is not defined</span></div></pre></td></tr></table></figure>
+<p>上面代码中，参数<code>x = x</code>形成一个单独作用域。实际执行的是<code>let x = x</code>，由于暂时性死区的原因，这行代码会报错”x 未定义“。</p>
+<h5 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h5><p>从 ES5 开始，函数内部可以设定为严格模式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line"><span class="meta">  'use strict'</span>;</div><div class="line">  <span class="comment">// code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>ES2016 做了一点修改，规定只要函数参数使用了默认值、解构赋值、或者扩展运算符，那么函数内部就不能显式设定为严格模式，否则会报错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params">a, b = a</span>) </span>&#123;</div><div class="line"><span class="meta">  'use strict'</span>;</div><div class="line">  <span class="comment">// code</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="keyword">const</span> doSomething = <span class="function"><span class="keyword">function</span> (<span class="params">&#123;a, b&#125;</span>) </span>&#123;</div><div class="line"><span class="meta">  'use strict'</span>;</div><div class="line">  <span class="comment">// code</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="keyword">const</span> doSomething = <span class="function">(<span class="params">...a</span>) =&gt;</span> &#123;</div><div class="line">  <span class="string">'use strict'</span>;</div><div class="line">  <span class="comment">// code</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> obj = &#123;</div><div class="line">  <span class="comment">// 报错</span></div><div class="line">  doSomething(&#123;a, b&#125;) &#123;</div><div class="line">    <span class="string">'use strict'</span>;</div><div class="line">    <span class="comment">// code</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -587,7 +608,7 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-和-const-命令"><span class="nav-text">let 和 const 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不存在变量提升"><span class="nav-text">不存在变量提升</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#暂时性死区"><span class="nav-text">暂时性死区</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量的解构赋值"><span class="nav-text">变量的解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认值"><span class="nav-text">默认值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的扩展"><span class="nav-text">字符串的扩展</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-和-const-命令"><span class="nav-text">let 和 const 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不存在变量提升"><span class="nav-text">不存在变量提升</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#暂时性死区"><span class="nav-text">暂时性死区</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量的解构赋值"><span class="nav-text">变量的解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认值"><span class="nav-text">默认值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的扩展"><span class="nav-text">函数的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#与解构赋值默认值结合使用"><span class="nav-text">与解构赋值默认值结合使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作用域"><span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式"><span class="nav-text">严格模式</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
