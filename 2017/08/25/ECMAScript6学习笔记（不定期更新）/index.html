@@ -94,7 +94,7 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
 
 let 和 const 命令不存在变量提升var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。
 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。1234567">
-<meta property="og:updated_time" content="2017-08-31T09:17:04.346Z">
+<meta property="og:updated_time" content="2017-08-31T09:59:17.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript6学习笔记（不定期更新）">
 <meta name="twitter:description" content="更新于：2017年8月31日16:24:13主要参考：ECMAScript 6 入门
@@ -396,14 +396,12 @@ let 和 const 命令不存在变量提升var命令会发生”变量提升“现
 <p>上面两种写法都对函数的参数设定了默认值，区别是写法一函数参数的默认值是空对象，但是设置了对象解构赋值的默认值；写法二函数参数的默认值是一个有具体属性的对象，但是没有设置对象解构赋值的默认值。</p>
 <h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><p>一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域（context）。等到初始化结束，这个作用域就会消失。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y = x</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(y);</div><div class="line">&#125;</div><div class="line"></div><div class="line">f(<span class="number">2</span>) <span class="comment">// 2</span></div></pre></td></tr></table></figure>
-<p>三个作用域</p>
 <ul>
 <li>全局作用域 <code>x=1</code></li>
 <li>单独作用域 <code>x</code> <code>y=x</code> (此时的<code>x</code>指向第一个参数<code>x</code>，而不是全局变量<code>x</code>)</li>
 <li>函数作用域 <code>x=2</code> <code>y=x=2</code> (<code>y</code>取默认值)</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">y = x</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> x = <span class="number">2</span>;</div><div class="line">  <span class="built_in">console</span>.log(y);</div><div class="line">&#125;</div><div class="line"></div><div class="line">f() <span class="comment">// 1</span></div></pre></td></tr></table></figure>
-<p>三个作用域</p>
 <ul>
 <li>全局作用域 <code>x=1</code></li>
 <li>单独作用域 <code>y=x</code> (此时的<code>x</code>是全局变量<code>x</code>)</li>
